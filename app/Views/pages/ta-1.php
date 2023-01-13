@@ -72,14 +72,14 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item active ">
+                        <li class="sidebar-item ">
                             <a href="profile" class='sidebar-link'>
                                 <i class="bi bi-person-fill"></i>
                                 <span>Profil</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item  active has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
                                 <span>Registrasi Seminar</span>
@@ -120,7 +120,7 @@
             </header>
 
             <div class="page-heading">
-                <h3>Profil</h3>
+                <h3>Registrasi Tugas Akhir 1</h3>
             </div>
             <div class="page-content">
                 <section class="row">
@@ -134,118 +134,72 @@
                         <div class="col-12">
                             <div class="card p-3">
                                 <div class="col-12 d-flex justify-content-end">
-                                    <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="fas fa-user-edit text-sm" data-bs-toggle="tooltip"
-                                            data-bs-placement="top" title="Edit Profil" data-bs-toggle="modal"
-                                            data-bs-target="#exampleModal"></i>Edit Profil</a>
                                 </div>
-                                <div class="table-responsive">
-                                    <table class="table table-borderless">
-                                        <tr>
-                                            <td style="width: 20% !important;">Nama Lengkap</td>
-                                            <td style="width: 5% !important;">:</td>
-                                            <td style="width: 75% !important;">Azka Yogi Karina</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 20% !important;">NPM</td>
-                                            <td style="width: 5% !important;">:</td>
-                                            <td style="width: 75% !important;">20170510</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 20% !important;">Tanggal Lahir</td>
-                                            <td style="width: 5% !important;">:</td>
-                                            <td style="width: 75% !important;">12 Januari 2023</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 20% !important;">Tahun Masuk</td>
-                                            <td style="width: 5% !important;">:</td>
-                                            <td style="width: 75% !important;">12 Januari 2023</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 20% !important;">Jenis Kelamin</td>
-                                            <td style="width: 5% !important;">:</td>
-                                            <td style="width: 75% !important;">Perempuan</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 20% !important;">Alamat</td>
-                                            <td style="width: 5% !important;">:</td>
-                                            <td style="width: 75% !important;">Bandar Lampung</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 20% !important;">E-mail</td>
-                                            <td style="width: 5% !important;">:</td>
-                                            <td style="width: 75% !important;">lalalala@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="width: 20% !important;">Nomor Telepon</td>
-                                            <td style="width: 5% !important;">:</td>
-                                            <td style="width: 75% !important;">082332889475</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="form-floating mb-3">
+                                    <input require type="month" class="form-control ms-1" id="month" name="month"
+                                        value="">
+                                    <label for="periode">Periode Seminar</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="text" class="form-control ms-1" id="judul" name="judul"
+                                        value="">
+                                    <label for="name">Judul Tugas Akhir</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="text" class="form-control ms-1" id="pbb1" name="pbb1" value="">
+                                    <label for="pbb1">Dosen Pembimbing Akademik</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="number" class="form-control ms-1" id="nimpa" name="nimpa"
+                                        value="">
+                                    <label for="nimpa">NIM Dosen Pembimbing Akademik</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="text" class="form-control ms-1" id="pbb1" name="pbb1" value="">
+                                    <label for="pbb1">Dosen Pembimbing 1</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="number" class="form-control ms-1" id="nimpbb1" name="nimpbb1"
+                                        value="">
+                                    <label for="nimpbb1">NIM Dosen Pembimbing 1</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="text" class="form-control ms-1" id="pbb2" name="pbb2" value="">
+                                    <label for="pbb2">Dosen Pembimbing 2</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="number" class="form-control ms-1" id="nimpbb2" name="nimpbb2"
+                                        value="">
+                                    <label for="nimpbb2">NIM Dosen Pembimbing 2</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="text" class="form-control ms-1" id="penguji" name="penguji"
+                                        value="">
+                                    <label for="penguji">Dosen Penguji</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="number" class="form-control ms-1" id="nimpbhs" name="nimpbhs"
+                                        value="">
+                                    <label for="nimpbhs">NIM Dosen Pembahas</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="number" class="form-control ms-1" id="sks" name="sks" value="">
+                                    <label for="sks">SKS</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input require type="number" class="form-control ms-1" id="ipk" name="ipk" value="">
+                                    <label for="ipk">IPK</label>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="formFile" class="form-label">Berkas Kelengkapan</label>
+                                    <input class="form-control" type="file" id="formFile">
+                                </div>
+                                <div class="col-12 d-flex justify-content-end">
+                                    <button type="submit" class="btn btn-primary me-1 mb-1">Kirim</button>
                                 </div>
                             </div>
                         </div>
                     </div>
-            </div>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-scrollable modal-fullscreen-sm-down">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Edit Profil</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action='updateProfile' method="POST">
-                                <div class="form-floating">
-                                    <input type="hidden" class="form-control ms-1">
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input require type="text" class="form-control ms-1" id="name" name="name" value="">
-                                    <label for="name">Nama Lengkap</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input require type="text" class="form-control ms-1" id="npm" name="npm" value="">
-                                    <label for="npm">NPM</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input require type="date" class="form-control ms-1" id="date" name="date" value="">
-                                    <label for="date">Tanggal Lahir</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input require type="date" class="form-control ms-1" id="date" name="date" value="">
-                                    <label for="tahun">Tahun Masuk</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <select class="form-select ms-1" aria-label=".form-select-sm" name="kelamin">
-                                        <option value="Laki-laki" selected>Jenis kelamin</option>
-                                        <option value="Perempuan">Laki-laki</option>
-                                        <option value="Perempuan">Perempuan</option>
-                                    </select>
-                                    <label for="gender">Jenis Kelamin</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <textarea class="form-control ms-1" id="address" name="address"></textarea>
-                                    <label for="address">Alamat</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control ms-1" id="email" name="email" value="">
-                                    <label for="email">E-mail</label>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="text" class="form-control ms-1" id="phone" name="phone" value="">
-                                    <label for="phone">Nomor Telepon</label>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <footer>

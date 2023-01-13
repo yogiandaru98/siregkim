@@ -38,6 +38,11 @@ $routes->set404Override();
 $routes->get('/', 'Home::index');
 $routes->get('dashboard', 'Pages::dashboard');
 $routes->get('profile', 'Pages::profile');
+$routes->get('pkl', 'Pages::pkl');
+$routes->get('pra-ta', 'Pages::pra_ta');
+$routes->get('ta-1', 'Pages::ta_1');
+$routes->get('ta-2', 'Pages::ta_2');
+$routes->get('kompre', 'Pages::kompre');
 
 /*
  * --------------------------------------------------------------------
