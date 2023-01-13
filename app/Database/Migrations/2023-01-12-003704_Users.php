@@ -17,8 +17,8 @@ class Users extends Migration
                 'auto_increment' => true,
             ],
             'username' => [
-                'type' => 'VARCHAR',
-                'constraint' => '13',
+                'type' => 'BIGINT',
+                'constraint' => '18',
             ],
             'password' => [
                 'type' => 'VARCHAR',
@@ -31,22 +31,27 @@ class Users extends Migration
             'is_mahasiswa' => [
                 'type' => 'INT',
                 'constraint' => '1',
+                'default' => '0'
             ],
             'is_dosen' => [
                 'type' => 'INT',
                 'constraint' => '1',
+                'default' => '0'
             ],
             'is_koor' => [
                 'type' => 'INT',
                 'constraint' => '1',
+                'default' => '0'
             ],
             'is_tandik' => [
                 'type' => 'INT',
                 'constraint' => '1',
+                'default' => '0'
             ],
             'is_superadmin' => [
                 'type' => 'INT',
                 'constraint' => '1',
+                'default' => '0',
             ],
             'created_at' => [
                 'type' => 'DATETIME',
