@@ -43,6 +43,8 @@ $routes->get('pra-ta', 'Pages::pra_ta');
 $routes->get('ta-1', 'Pages::ta_1');
 $routes->get('ta-2', 'Pages::ta_2');
 $routes->get('kompre', 'Pages::kompre');
+$routes->get('/create', 'Superadmin::createAkun');
+$routes->post('/create/akun', 'Superadmin::saveAkun');
 
 /*
  * --------------------------------------------------------------------

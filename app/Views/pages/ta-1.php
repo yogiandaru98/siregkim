@@ -1,4 +1,4 @@
-<?= $this->extend('templates/header') ?>
+<?= $this->extend('templates/sidebar') ?>
 <?= $this->section('content') ?>
 
 <div class="page-heading">
