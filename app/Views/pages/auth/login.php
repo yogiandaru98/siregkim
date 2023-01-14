@@ -1,3 +1,9 @@
+<header>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+    
+    </header>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Poppins');
 
@@ -10,6 +16,11 @@
     body {
         font-family: "Poppins", sans-serif;
         height: 100vh;
+        background-color: #56baed;
+    }
+    .blue{
+        background-color: #56baed;
+
     }
 
     a {
@@ -99,7 +110,7 @@
         box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
         -webkit-border-radius: 5px 5px 5px 5px;
         border-radius: 5px 5px 5px 5px;
-        margin: 5px 20px 40px 20px;
+        /* margin: 5px 20px 40px 20px; */
         -webkit-transition: all 0.3s ease-in-out;
         -moz-transition: all 0.3s ease-in-out;
         -ms-transition: all 0.3s ease-in-out;
@@ -132,7 +143,7 @@
         text-decoration: none;
         display: inline-block;
         font-size: 16px;
-        margin: 5px;
+        /* margin: 5px; */
         width: 85%;
         border: 2px solid #f6f6f6;
         -webkit-transition: all 0.5s ease-in-out;
@@ -156,6 +167,7 @@
 
 
     /* ANIMATIONS */
+    
 
     /* Simple CSS3 Fade-in-down Animation */
     .fadeInDown {
@@ -281,6 +293,7 @@
         color: #0d0d0d;
     }
 
+    
     .underlineHover:hover:after {
         width: 100%;
     }
@@ -301,6 +314,10 @@
         box-sizing: border-box;
     }
 </style>
+<html class="blue">
+<body>
+    
+
 <div class="wrapper fadeInDown">
     <div id="formContent">
         <!-- Tabs Titles -->
@@ -311,15 +328,31 @@
         <div class="fadeIn first">
             <img src="<?= base_url('assets/images/logo/Unila.png')?>" id="icon" alt="User Icon" />
         </div>
-
+        <?php if(session()->getFlashdata('error')): ?>
+        <div class="alert alert-danger alert-dismissible show fade">
+            <div class="alert-body">
+                <button class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                <b>Gagal!</b>
+                <?= session()->getFlashdata('error') ?>
+            </div>
+        </div>
+        <?php endif; ?>
         <!-- Login Form -->
-        <form action="/login/auth" method="POST" >
-            <input type="text" id="login" class="fadeIn second" name="username" placeholder="username">
-            <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-            <input type="submit" class="fadeIn fourth" value="Log In">
+        <form action="/login/action" method="POST" class="mt-3" >
+            <input type="text" id="login" class="fadeIn second mt-2" name="username" placeholder="username">
+            <input type="text" id="password" class="fadeIn third mt-2" name="password" placeholder="password">
+            <input type="submit" class="fadeIn fourth mt-4" value="Log In">
         </form>
 
 
 
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="<?= base_url('assets/js/bootstrap.js')?> "></script>
+</html>
+</body>
