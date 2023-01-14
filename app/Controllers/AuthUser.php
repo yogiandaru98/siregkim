@@ -38,6 +38,7 @@ class AuthUser extends BaseController
                 'is_superadmin' => $user['is_superadmin'],
                 'is_mahasiswa' => $user['is_mahasiswa'],
                 'is_dosen' => $user['is_dosen'],
+                'is_koor' => $user['is_koor'],
                 'is_tandik' => $user['is_tandik'],
                 'logged_in' => TRUE
             ];

@@ -54,7 +54,14 @@ $routes->get('mahasiswa/biodata', 'Mahasiswa/biodata');
 
 
 
+//menu superadmin
+$routes->get('superadmin/create', 'Superadmin::createAkun');
+$routes->post('superadmin/create/akun', 'Superadmin::saveAkun');
 
+
+
+
+// karina testing view
 $routes->get('/', 'Home::index');
 $routes->get('dashboard', 'Pages::dashboard');
 $routes->get('profile', 'Pages::profile');
@@ -64,9 +71,7 @@ $routes->get('ta-1', 'Pages::ta_1');
 $routes->get('ta-2', 'Pages::ta_2');
 $routes->get('kompre', 'Pages::kompre');
 
-//menu superadmin
-$routes->get('superadmin/create', 'Superadmin::createAkun');
-$routes->post('superadmin/create/akun', 'Superadmin::saveAkun');
+
 
 /*
  * --------------------------------------------------------------------
