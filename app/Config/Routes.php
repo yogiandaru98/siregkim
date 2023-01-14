@@ -35,6 +35,26 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+// AuthUser
+$routes->get('login', 'AuthUser::index');
+$routes->post('login/action', 'AuthUser::login');
+$routes->get('/logout','AuthUser::logout');
+
+
+
+//Global
+$routes->get('dashboard', 'SemuaUser::index');
+
+
+
+
+//mahasiswa
+$routes->get('mahasiswa/biodata', 'Mahasiswa/biodata');
+
+
+
+
+
 $routes->get('/', 'Home::index');
 $routes->get('dashboard', 'Pages::dashboard');
 $routes->get('profile', 'Pages::profile');
@@ -43,8 +63,10 @@ $routes->get('pra-ta', 'Pages::pra_ta');
 $routes->get('ta-1', 'Pages::ta_1');
 $routes->get('ta-2', 'Pages::ta_2');
 $routes->get('kompre', 'Pages::kompre');
-$routes->get('/create', 'Superadmin::createAkun');
-$routes->post('/create/akun', 'Superadmin::saveAkun');
+
+//menu superadmin
+$routes->get('superadmin/create', 'Superadmin::createAkun');
+$routes->post('superadmin/create/akun', 'Superadmin::saveAkun');
 
 /*
  * --------------------------------------------------------------------

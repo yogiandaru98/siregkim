@@ -104,6 +104,12 @@
                                 <span>Registrasi Alumni</span>
                             </a>
                         </li>
+                        <li class="sidebar-item ">
+                            <a href="/logout" class='sidebar-link'>
+                                <i class="bi bi-mortarboard-fill"></i>
+                                <span>Logout</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
