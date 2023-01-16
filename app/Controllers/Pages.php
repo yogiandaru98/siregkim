@@ -34,4 +34,12 @@ class Pages extends BaseController
     {
         return view('pages/kompre');
     }
+    public function createProfile()
+    {
+        $data=[
+            'title' => 'Lengkapi Profile Anda',
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('pages/mahasiswa/profile/create', $data);
+    }
 }

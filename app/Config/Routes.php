@@ -73,6 +73,11 @@ $routes->get('kompre', 'Pages::kompre');
 
 
 
+//testing yogi
+$routes->get('create-profile', 'Pages::createProfile');
+
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
