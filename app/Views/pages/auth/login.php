@@ -9,13 +9,6 @@
     <link rel="stylesheet" href="assets/css/pages/auth.css">
     <link rel="shortcut icon" href="assets/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="assets/images/logo/favicon.png" type="image/png">
-    <link rel="stylesheet" href="<?= base_url('assets/css/main/app.css')?> ">
-    <link rel="stylesheet" href="<?= base_url('assets/css/main/app-dark.css')?> ">
-    <link rel="shortcut icon" href="<?= base_url('assets/images/logo/favicon.svg')?>" type="image/x-icon">
-    <link rel="shortcut icon" href="<?= base_url('assets/images/logo/favicon.png')?>" type="image/png">
-    <link rel="stylesheet" href="<?= base_url('assets/css/shared/iconly.css')?> ">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
-
 </head>
 
 <body>
@@ -28,18 +21,7 @@
                 <a href="dashboard"><img src="assets/images/logo/Unila.png" alt="Logo"></a>
             </div>
             <h1 class="auth-title">SIREGKIM</h1>
-            <form action="/login/action" method="POST" >
-            <?php if(session()->getFlashdata('error')): ?>
-            <div class="alert alert-danger alert-dismissible show fade">
-                <div class="alert-body">
-                    <button class="close" data-dismiss="alert">
-                        <span>&times;</span>
-                    </button>
-                    <b>Gagal!</b>
-                    <?= session()->getFlashdata('error') ?>
-                </div>
-            </div>
-            <?php endif;?>
+            <form action="dashboard">
                 <div class="form-group position-relative has-icon-left mb-4">
                     <input type="text" name="username" class="form-control form-control-xl" placeholder="Username">
                     <div class="form-control-icon">
