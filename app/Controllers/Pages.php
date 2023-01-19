@@ -44,6 +44,6 @@ class Pages extends BaseController
     }
     public function forgotpass()
     {
-        return view('pages/forgotpass');
+        return view('pages/auth/forgotpass');
     }
 }
