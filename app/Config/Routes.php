@@ -51,6 +51,8 @@ $routes->get('dashboard', 'SemuaUser::index');
 //mahasiswa
 $routes->get('mahasiswa/profile', 'Mahasiswa::index');
 $routes->post('mahasiswa/profile/create', 'Mahasiswa::saveProfile');
+$routes->get('mahasiswa/profile/edit', 'Mahasiswa::editProfile');
+$routes->post('mahasiswa/profile/edit/action', 'Mahasiswa::updateProfile');
 
 
 
@@ -71,6 +73,9 @@ $routes->get('pra-ta', 'Pages::pra_ta');
 $routes->get('ta-1', 'Pages::ta_1');
 $routes->get('ta-2', 'Pages::ta_2');
 $routes->get('kompre', 'Pages::kompre');
+$routes->get('kompre', 'Pages::kompre');
+
+
 
 
 

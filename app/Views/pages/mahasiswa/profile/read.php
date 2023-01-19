@@ -16,9 +16,7 @@
             <div class="col-12">
                 <div class="card p-3">
                     <div class="col-12 d-flex justify-content-end">
-                        <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <i class="fas fa-user-edit text-sm" data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Edit Profil" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>Edit
+                        <a class="btn btn-primary" href="<?= site_url('/mahasiswa/profile/edit') ?>"  >Edit
                             Profil</a>
                     </div>
                     <div class="table-responsive">
