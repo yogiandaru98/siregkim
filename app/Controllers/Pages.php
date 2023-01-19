@@ -42,4 +42,8 @@ class Pages extends BaseController
         ];
         return view('pages/mahasiswa/profile/create', $data);
     }
+    public function forgotpass()
+    {
+        return view('pages/forgotpass');
+    }
 }

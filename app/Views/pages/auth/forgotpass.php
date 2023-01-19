@@ -20,25 +20,18 @@
             <div class="auth-logo">
                 <a href="dashboard"><img src="assets/images/logo/Unila.png" alt="Logo"></a>
             </div>
-            <h1 class="auth-title">SIREGKIM</h1>
-            <form action="dashboard">
+            <h1 class="auth-title">Forgot Password</h1>
+            <p class="auth-subtitle mb-5">Input your email and we will send you reset password link.</p>
+
+            <form action="index.html">
                 <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" class="form-control form-control-xl" placeholder="Username">
+                    <input type="email" class="form-control form-control-xl" placeholder="Email">
                     <div class="form-control-icon">
-                        <i class="bi bi-person"></i>
+                        <i class="bi bi-envelope"></i>
                     </div>
                 </div>
-                <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="password" class="form-control form-control-xl" placeholder="Password">
-                    <div class="form-control-icon">
-                        <i class="bi bi-shield-lock"></i>
-                    </div>
-                </div>
-                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
+                <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Send</button>
             </form>
-            <div class="text-center mt-3">
-                <p><a class="font-bold" href="forgotpass">Forgot password?</a></p>
-            </div>
         </div>
     </div>
     <div class="col-lg-7 d-none d-lg-block">

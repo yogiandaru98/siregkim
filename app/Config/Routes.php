@@ -63,6 +63,7 @@ $routes->post('superadmin/create/akun', 'Superadmin::saveAkun');
 
 // karina testing view
 $routes->get('/', 'Home::index');
+$routes->get('forgotpass', 'Pages::forgotpass');
 $routes->get('dashboard', 'Pages::dashboard');
 $routes->get('profile', 'Pages::profile');
 $routes->get('pkl', 'Pages::pkl');
