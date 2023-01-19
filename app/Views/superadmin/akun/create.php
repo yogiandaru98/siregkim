@@ -1,4 +1,4 @@
-<form action="/create/akun" method="POST">
+<form action="<?= base_url('superadmin/create/akun') ?>" method="POST">
     <input type="text" name="nama" placeholder="nama">
     <p><?= $validation->getError('nama')  ?></p>
     <br>

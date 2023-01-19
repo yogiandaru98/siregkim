@@ -26,42 +26,47 @@
                             <tr>
                                 <td style="width: 20% !important;">Nama Lengkap</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">Azka Yogi Karina</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['nama_lengkap'] ?></td>
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">NPM</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">20170510</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['npm'] ?></td>
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">Tanggal Lahir</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">12 Januari 2023</td>
+                                <td style="width: 75% !important;"><?=date_format(new DateTime($profilMahasiswa['tanggal_lahir']),"d F Y") ?></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Tanggal Masuk</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= date_format(new DateTime($profilMahasiswa['tanggal_masuk']),"d F Y") ?></td>
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">Tahun Masuk</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">12 Januari 2023</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['angkatan'] ?></td>
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">Jenis Kelamin</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">Perempuan</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['jenis_kelamin'] ?></td>
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">Alamat</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">Bandar Lampung</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['alamat'] ?></td>
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">E-mail</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">lalalala@gmail.com</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['email'] ?></td>
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">Nomor Telepon</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">082332889475</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['no_telepon'] ?></td>
                             </tr>
                             </tbody>
                         </table>

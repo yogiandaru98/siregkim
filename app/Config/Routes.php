@@ -49,7 +49,8 @@ $routes->get('dashboard', 'SemuaUser::index');
 
 
 //mahasiswa
-$routes->get('mahasiswa/biodata', 'Mahasiswa/biodata');
+$routes->get('mahasiswa/profile', 'Mahasiswa::index');
+$routes->post('mahasiswa/profile/create', 'Mahasiswa::saveProfile');
 
 
 

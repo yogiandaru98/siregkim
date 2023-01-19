@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class ProfileMahasiswa extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'profilemahasiswas';
+    protected $table            = 'profile_mahasiswa';
     protected $primaryKey       = 'id_profile_mahasiswa';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
@@ -17,7 +17,7 @@ class ProfileMahasiswa extends Model
     protected $allowedFields    = ['id_user', 'npm', 'nama_lengkap', 'tanggal_lahir','tanggal_masuk', 'jenis_kelamin', 'angkatan', 'alamat', 'no_telepon', 'email',  'created_at', 'updated_at'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
