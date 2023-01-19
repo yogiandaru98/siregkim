@@ -68,13 +68,20 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item ">
-                            <a href="profile" class='sidebar-link'>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
                                 <i class="bi bi-person-fill"></i>
-                                <span>Profil</span>
+                                <span>Pengaturan Akun</span>
                             </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="profile">Profil</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="changepass">Ganti Kata Sandi</a>
+                                </li>
+                            </ul>
                         </li>
-
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
@@ -104,19 +111,11 @@
                                 <span>Registrasi Alumni</span>
                             </a>
                         </li>
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i class="bi bi-stack"></i>
-                                <span>Pengaturan Akun</span>
+                        <li class="sidebar-item ">
+                            <a href="logout" class='sidebar-link'>
+                                <i class="bi bi-box-arrow-left"></i>
+                                <span>Keluar</span>
                             </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href="changepass">Ganti Kata Sandi</a>
-                                </li>
-                                <li class="submenu-item ">
-                                    <a href="logout">Keluar</a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </div>

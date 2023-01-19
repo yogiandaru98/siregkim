@@ -22,7 +22,7 @@
                             <table class="table table-borderless">
                                 
                                 <tr>
-                                    <td style="width: 20% !important;">Alamat</td>
+                                    <td style="width: 20% !important;">Nama Lengkap</td>
                                     <td style="width: 5% !important;">:</td>
                                     <td style="width: 75% !important;">
                                         <input type="text" class="form-control <?= ($validation->hasError('nama_lengkap')) ? 'is-invalid' : ''; ?>" id="nama_lengkap" name="nama_lengkap" value="<?= $profilMahasiswa['nama_lengkap'] ?>" autocomplete="off" required>
