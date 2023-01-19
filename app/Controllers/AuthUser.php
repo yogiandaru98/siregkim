@@ -54,5 +54,18 @@ class AuthUser extends BaseController
         session()->destroy();
         return redirect()->to(base_url('/login'));
     }
+    public function gantiPassword()
+    {
+        $data = [
+            'title' => 'Ganti Password',
+        ];
+        return view('pages/auth/ganti_password', $data);
+        
+    }
+    public function gantiPasswordAction()
+    {
+        
+        # code...
+    }
     
 }

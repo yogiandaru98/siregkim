@@ -16,19 +16,11 @@
             <div class="col-12">
                 <div class="card p-3">
                     <div class="table-responsive">
+                        
                         <form action="/mahasiswa/profile/create" method="POST">
                         <?= csrf_field(); ?>
                         <table class="table table-borderless">
-                            <tr>
-                                <td style="width: 20% !important;">Nama Lengkap</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <input type="text" class="form-control <?= ($validation->hasError('nama_lengkap')) ? 'is-invalid' : ''; ?>" id="nama_lengkap" name="nama_lengkap" value="<?= set_value('nama_lengkap'); ?>" autocomplete="off"">
-                                    <div class="invalid-feedback">
-                                <?= $validation->getError('nama_lengkap') ?>
-                                    </div>
-                                </td>
-                            </tr>
+                            
                             <tr>
                                 <td style=" width: 20% !important;">Tanggal Lahir
                                 </td>
@@ -56,8 +48,8 @@
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;">
                                 <select class="form-control" name="jenis_kelamin">
-                                    <option selected> -Pilih Jenis Kelamin- </option>
-                                    <option value="Laki-Laki">Laki-laki</option>
+                                    <!-- <option selected> -Pilih Jenis Kelamin- </option> -->
+                                    <option selected value="Laki-Laki">Laki-laki</option>
                                     <option value="Perempuan">Perempuan</option>
                                     <div class="invalid-feedback">
                                 <?= $validation->getError('jenis_kelamin') ?>
