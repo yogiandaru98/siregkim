@@ -104,11 +104,19 @@
                                 <span>Registrasi Alumni</span>
                             </a>
                         </li>
-                        <li class="sidebar-item ">
-                            <a href="/logout" class='sidebar-link'>
-                                <i class="bi bi-mortarboard-fill"></i>
-                                <span>Logout</span>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Pengaturan Akun</span>
                             </a>
+                            <ul class="submenu ">
+                                <li class="submenu-item ">
+                                    <a href="changepass">Ganti Kata Sandi</a>
+                                </li>
+                                <li class="submenu-item ">
+                                    <a href="logout">Keluar</a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
