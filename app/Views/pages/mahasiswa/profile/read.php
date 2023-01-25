@@ -42,6 +42,11 @@
                                 <td style="width: 75% !important;"><?= date_format(new DateTime($profilMahasiswa['tanggal_masuk']),"d F Y") ?></td>
                             </tr>
                             <tr>
+                                <td style="width: 20% !important;">Semester</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['semester'] ?></td>
+                            </tr>
+                            <tr>
                                 <td style="width: 20% !important;">Tahun Masuk</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;"><?= $profilMahasiswa['angkatan'] ?></td>

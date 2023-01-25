@@ -4,17 +4,37 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ProfileMahasiswa extends Model
+class RegistrasiPKL extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'profile_mahasiswa';
-    protected $primaryKey       = 'id_profile_mahasiswa';
+    protected $table            = 'pkl_mahasiswa';
+    protected $primaryKey       = 'id_pkl';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_user', 'semester', 'npm', 'nama_lengkap', 'tanggal_lahir','tanggal_masuk', 'jenis_kelamin', 'angkatan', 'alamat', 'no_telepon', 'email',  'created_at', 'updated_at'];
+    protected $allowedFields    = [
+        'id_user',
+        'judul_pkl',
+        'prodi',
+        'periode_seminar_pkl',
+        'lokasi_pkl',
+        'dosen_pembimbing_akademik',
+        'nip_pembimbing_akademik',
+        'dosen_pembimbing_pkl',
+        'nip_pembimbing_pkl',
+        'pembimbing_lapangan',
+        'no_pembimbing_lapangan',
+        'sks',
+        'ipk',
+        'berkas_kelengkapan',
+        'berkas_seminar_pkl',
+        'bukti_seminar_pkl',
+        'status_pkl',
+        'status_bukti_seminar_pkl',
+        'pesan_admin',
+    ];
 
     // Dates
     protected $useTimestamps = true;

@@ -54,6 +54,17 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td style=" width: 20% !important;">Semester
+                                </td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <input type="number" class="form-control <?= ($validation->hasError('semester')) ? 'is-invalid' : ''; ?>" id="semester" name="semester" value="<?= $profilMahasiswa['semester'] ?>" autocomplete="off"">
+                                    <div class="invalid-feedback">
+                                <?= $validation->getError('semester') ?>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
                                 <td style=" width: 20% !important;">Jenis Kelamin</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;">

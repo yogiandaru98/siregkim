@@ -68,13 +68,13 @@
                                 <span>Dashboard</span>
                             </a>
                         </li>
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item  has-sub <?= ($title == "Profile"||$title == "Sandi") ? 'active' : '' ?>">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-person-fill"></i>
                                 <span>Pengaturan Akun</span>
                             </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
+                            <ul class="submenu <?= ($title == "Profile"||$title == "Sandi") ? 'active' : '' ?>">
+                                <li class="submenu-item <?= ($title == "Profile") ? 'active' : '' ?>">
                                     <a href="profile">Profil</a>
                                 </li>
                                 <li class="submenu-item ">
@@ -82,25 +82,25 @@
                                 </li>
                             </ul>
                         </li>
-                        <li class="sidebar-item  has-sub">
+                        <li class="sidebar-item  has-sub <?= ($title == "PKL"||$title == "PTA1"||$title == "TA1"||$title == "TA2"||$title == "KOMPRE") ? 'active' : '' ?>">
                             <a href="#" class='sidebar-link'>
                                 <i class="bi bi-stack"></i>
                                 <span>Registrasi Seminar</span>
                             </a>
-                            <ul class="submenu ">
-                                <li class="submenu-item ">
-                                    <a href="pkl">Praktik Kerja Lapangan</a>
+                            <ul class="submenu" style="<?= ($title == "PKL"||$title == "PTA1"||$title == "TA1"||$title == "TA2"||$title == "KOMPRE") ? 'display: block;' : '' ?>">
+                                <li class="submenu-item <?= ($title == "PKL") ? 'active' : '' ?>">
+                                    <a href="/mahasiswa/pkl">Praktik Kerja Lapangan</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item <?= ($title == "PTA1") ? 'active' : '' ?>">
                                     <a href="pra-ta">Pra-Tugas Akhir 1</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item <?= ($title == "TA1") ? 'active' : '' ?>">
                                     <a href="ta-1">Tugas Akhir 1</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item <?= ($title == "TA2") ? 'active' : '' ?>">
                                     <a href="ta-2">Tugas Akhir 2</a>
                                 </li>
-                                <li class="submenu-item ">
+                                <li class="submenu-item <?= ($title == "KOMPRE") ? 'active' : '' ?>">
                                     <a href="kompre">Ujian Komprehensif</a>
                                 </li>
                             </ul>

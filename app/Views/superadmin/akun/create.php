@@ -27,6 +27,10 @@
         TANDIK
     </label>
     <input type="checkbox" value="1" name="is_tandik">
+    <label for="admin">
+        ADMIN
+    </label>
+    <input type="checkbox" value="1" name="id_admin">
     <label for="superadmin">
         SUPERADMIN
     </label>
@@ -40,10 +44,11 @@
     var cb2 = document.getElementsByName('is_dosen')
     var cb3 = document.getElementsByName('is_koor')
     var cb4 = document.getElementsByName('is_superadmin')
+    var cb5 = document.getElementsByName('is_admin')
     var button = document.getElementsByName('submit');
     var result = document.getElementById('result');
     button.addEventListener('click', function() {
-        if (cb1.checked == true || cb2.checked == true || cb3.checked == true || cb3.checked == true) {
+        if (cb1.checked == true || cb2.checked == true || cb3.checked == true || cb3.checked == true || cb4.checked == true || cb5.checked == true) {
             result.innerHTML = 'Valid';
             button.enable = true;
         } else {

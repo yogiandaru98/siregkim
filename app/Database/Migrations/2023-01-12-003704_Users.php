@@ -53,6 +53,11 @@ class Users extends Migration
                 'constraint' => '1',
                 'default' => '0',
             ],
+            'is_admin' => [
+                'type' => 'INT',
+                'constraint' => '1',
+                'default' => '0',
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,

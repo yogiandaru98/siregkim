@@ -41,6 +41,10 @@ class ProfileMahasiswa extends Migration
                 'type' => 'INT',
                 'constraint' => '4',
             ],
+            'semester' => [
+                'type' => 'INT',
+                'constraint' => '2',
+            ],
             'jenis_kelamin' => [
                 'type' => 'ENUM',
                 'constraint' => ['Laki-Laki', 'Perempuan']

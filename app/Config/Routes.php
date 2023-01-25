@@ -53,6 +53,13 @@ $routes->get('mahasiswa/profile', 'Mahasiswa::index');
 $routes->post('mahasiswa/profile/create', 'Mahasiswa::saveProfile');
 $routes->get('mahasiswa/profile/edit', 'Mahasiswa::editProfile');
 $routes->post('mahasiswa/profile/edit/action', 'Mahasiswa::updateProfile');
+$routes->get('mahasiswa/pkl', 'Mahasiswa::Pkl');
+$routes->post('mahasiswa/pkl/create/action', 'Mahasiswa::savePkl');
+$routes->get('mahasiswa/pkl/edit', 'Mahasiswa::editPkl');
+$routes->post('mahasiswa/pkl/edit/action', 'Mahasiswa::updatePkl');
+$routes->post('mahasiswa/pkl/buktiSeminar', 'Mahasiswa::updateBuktiSeminar');
+
+
 
 
 

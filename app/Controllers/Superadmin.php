@@ -49,13 +49,14 @@ class Superadmin extends BaseController
             return redirect()->to('/create')->withInput();
         }
        $dataAkun=[
-        'nama' =>  htmlspecialchars($this->request->getVar('nama')),
+        'nama' =>  htmlspecialchars(ucwords(strtolower($this->request->getVar('nama')))),
         'username' =>  htmlspecialchars($this->request->getVar('username')),
         'password' =>  htmlspecialchars($this->request->getVar('password')),
         'is_mahasiswa' =>  htmlspecialchars($this->request->getVar('is_mahasiswa')),
         'is_dosen' =>  htmlspecialchars($this->request->getVar('is_dosen')),
         'is_koor' =>  htmlspecialchars($this->request->getVar('is_koor')),
         'is_tandik' =>  htmlspecialchars($this->request->getVar('is_tandik')),
+        'is_admin' =>  htmlspecialchars($this->request->getVar('is_admin')),
         'is_superadmin' =>  htmlspecialchars($this->request->getVar('is_superadmin')),
          ];
         $this->modelUsers->insert($dataAkun);

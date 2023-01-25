@@ -14,7 +14,7 @@ class Users extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['username', 'password', 'nama', 'is_mahasiswa', 'is_dosen', 'is_koor', 'is_tandik', 'is_superadmin', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['username', 'password', 'nama', 'is_mahasiswa', 'is_dosen', 'is_koor', 'is_tandik', 'is_superadmin', 'is_admin', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;
