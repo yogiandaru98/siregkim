@@ -19,11 +19,70 @@
                         <h4>Chart Alumni</h4>
                     </div>
                     <div class="card-body">
-                        <div id="chart-profile-visit"></div>
+                        <div id="chart" class="chart"></div>
                     </div>
                 </div>
             </div>
         </div>
 </div>
+<script src="<?= base_url('assets/extensions/apexcharts/apexcharts.min.js')?> "></script>
+    <script src="<?= base_url('assets/js/pages/dashboard.js')?> "></script>
+<script>
+            var options = {
+          series: [{
+          name: 'Praktik Kerja Lapangan',
+          data: [ 555, 999, 666]
+        }, {
+          name: 'Tugas Akhir 1',
+          data: [ 333, 444, 555]
+        }, {
+          name: 'Tugas Akhir 2',
+          data: [ 222, 333, 433]
+        }, {
+          name: 'Lulus',
+          data: [ 111, 222, 333]
+        }],
+          chart: {
+          type: 'bar',
+          height: 450
+        },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: '55%',
+            endingShape: 'rounded'
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          show: true,
+          width: 2,
+          colors: ['transparent']
+        },
+        xaxis: {
+          categories: ['2020', '2021', '2022'],
 
+        },
+        yaxis: {
+          title: {
+            text: 'Mahasiswa'
+          }
+        },
+        fill: {
+          opacity: 1
+        },
+        tooltip: {
+          y: {
+            formatter: function (val) {
+              return val + " Mahasiswa"
+            }
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+</script>
 <?= $this->endSection() ?>
