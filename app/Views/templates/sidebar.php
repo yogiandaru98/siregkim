@@ -63,7 +63,8 @@
                         <li class="sidebar-title">Menu</li>
 
                         <li class="sidebar-item">
-                            <a href="dashboard" class='sidebar-link'>
+                            <a href="<?= site_url("dashboard") ?>" class='sidebar-link'>
+                                
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
@@ -75,7 +76,7 @@
                             </a>
                             <ul class="submenu <?= ($title == "Profile"||$title == "Sandi") ? 'active' : '' ?>">
                                 <li class="submenu-item <?= ($title == "Profile") ? 'active' : '' ?>">
-                                    <a href="profile">Profil</a>
+                                    <a href="<?= site_url("mahasiswa/profile") ?>">Profil</a>
                                 </li>
                                 <li class="submenu-item ">
                                     <a href="changepass">Ganti Kata Sandi</a>
