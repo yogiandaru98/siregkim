@@ -17,7 +17,7 @@ class ValidasiReg extends BaseController
             'title' => 'Data PKL',
             'regPkl' => $this->RegistrasiPKL->getPklAll(),
         ];
-        return view('pages/validasi/validasiPkl/read', $data);
+        return view('pages/validasi/pkl/read', $data);
     }
     public function detailPkl($id)
     {
@@ -25,7 +25,7 @@ class ValidasiReg extends BaseController
             'title' => 'Detail PKL',
             'regPkl' => $this->RegistrasiPKL->getDetailPkl($id),
         ];
-        return view('pages/validasi/validasiPkl/detail', $data);
+        return view('pages/validasi/pkl/detail', $data);
     }
     public function updatePkl($id)
     {
@@ -33,7 +33,7 @@ class ValidasiReg extends BaseController
             'title' => 'Update PKL',
             'regPkl' => $this->RegistrasiPKL->getDetailPkl($id),
         ];
-        return view('pages/validasi/validasiPkl/update', $data);
+        return view('pages/validasi/pkl/update', $data);
     }
     public function savePkl($id)
     {

@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIREGKIM</title>
 
+    <link rel="stylesheet" href="<?= base_url('bootstrap/css/bootstrap.css')?> ">
     <link rel="stylesheet" href="<?= base_url('assets/css/main/app.css')?> ">
     <link rel="stylesheet" href="<?= base_url('assets/css/main/app-dark.css')?> ">
     <link rel="shortcut icon" href="<?= base_url('assets/images/logo/favicon.svg')?>" type="image/x-icon">
     <link rel="shortcut icon" href="<?= base_url('assets/images/logo/favicon.png')?>" type="image/png">
     <link rel="stylesheet" href="<?= base_url('assets/css/shared/iconly.css')?> ">
+    <link rel="stylesheet" href="<?= base_url('assets/extensions/@fortawesome/fontawesome-free/css/all.css')?> ">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 
@@ -136,6 +138,7 @@
 
     <!-- Need: Apexcharts -->
     <script src="<?= base_url('assets/extensions/apexcharts/apexcharts.min.js')?> "></script>
+    <script src="<?= base_url('assets/extensions/@fortawesome/fontawesome-free/js/all.js')?> "></script>
     <script src="<?= base_url('assets/js/pages/dashboard.js')?> "></script>
 
 </body>

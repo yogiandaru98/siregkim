@@ -15,7 +15,7 @@ class RegistrasiPKL extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'id_users',
+        'id_user',
         'judul_pkl',
         'prodi',
         'periode_seminar_pkl',
@@ -62,15 +62,15 @@ class RegistrasiPKL extends Model
     
     public function getPklAll(){
         return $this->db->table('pkl_mahasiswa')->select('pkl_mahasiswa.*, profile_mahasiswa.*, users.*')
-        ->join('profile_mahasiswa', 'profile_mahasiswa.id_users = pkl_mahasiswa.id_users')
-        ->join('users', 'users.id_users = pkl_mahasiswa.id_users')
+        ->join('profile_mahasiswa', 'profile_mahasiswa.id_user = pkl_mahasiswa.id_user')
+        ->join('users', 'users.id_user = pkl_mahasiswa.id_user')
         ->get()->getResultArray();
     }
 
     public function getDetailPkl($id){
         return $this->db->table('pkl_mahasiswa')->select('pkl_mahasiswa.*, profile_mahasiswa.*, users.*')
-        ->join('profile_mahasiswa', 'profile_mahasiswa.id_users = pkl_mahasiswa.id_users')
-        ->join('users', 'users.id_users = pkl_mahasiswa.id_users')
+        ->join('profile_mahasiswa', 'profile_mahasiswa.id_user = pkl_mahasiswa.id_user')
+        ->join('users', 'users.id_user = pkl_mahasiswa.id_user')
         ->where('pkl_mahasiswa.id_pkl', $id)
         ->get()->getRowArray();
     }

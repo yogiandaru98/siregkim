@@ -59,6 +59,11 @@ $routes->get('mahasiswa/pkl/edit', 'Mahasiswa::editPkl');
 $routes->post('mahasiswa/pkl/edit/action', 'Mahasiswa::updatePkl');
 $routes->post('mahasiswa/pkl/buktiSeminar', 'Mahasiswa::updateBuktiSeminar');
 
+//validasi
+$routes->get('validasi/pkl', 'ValidasiReg::readPkl');
+$routes->get('validasi/pkl/(:num)', 'ValidasiReg::detailPkl/$1');
+$routes->post('validasi/pkl/(:num)/action', 'ValidasiReg::updatePkl/$1');
+
 
 
 
