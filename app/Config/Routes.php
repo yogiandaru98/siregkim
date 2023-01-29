@@ -88,6 +88,12 @@ $routes->get('ta-2', 'Pages::ta_2');
 $routes->get('kompre', 'Pages::kompre');
 $routes->get('kompre', 'Pages::kompre');
 
+$routes->get('mahasiswa/prata', 'Mahasiswa::Pkl');
+$routes->post('mahasiswa/prata/create/action', 'Mahasiswa::savePkl');
+$routes->get('mahasiswa/prata/edit', 'Mahasiswa::editPkl');
+$routes->post('mahasiswa/prata/edit/action', 'Mahasiswa::updatePkl');
+$routes->post('mahasiswa/prata/buktiSeminar', 'Mahasiswa::updateBuktiSeminar');
+
 
 
 
