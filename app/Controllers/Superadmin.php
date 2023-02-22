@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+// use CodeIgniter\Encryption\Argon2Handler;
 
 class Superadmin extends BaseController
 {
@@ -48,10 +49,12 @@ class Superadmin extends BaseController
         if(!$validatedAkun){
             return redirect()->to('/create')->withInput();
         }
+        $password = $this->request->getVar('password');
+        $password = password_hash($password, PASSWORD_ARGON2I);
        $dataAkun=[
         'nama' =>  htmlspecialchars(ucwords(strtolower($this->request->getVar('nama')))),
         'username' =>  htmlspecialchars($this->request->getVar('username')),
-        'password' =>  htmlspecialchars($this->request->getVar('password')),
+        'password' =>  $password,
         'is_mahasiswa' =>  htmlspecialchars($this->request->getVar('is_mahasiswa')),
         'is_dosen' =>  htmlspecialchars($this->request->getVar('is_dosen')),
         'is_koor' =>  htmlspecialchars($this->request->getVar('is_koor')),

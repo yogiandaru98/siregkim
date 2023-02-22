@@ -1451,7 +1451,7 @@ div.dts div.dataTables_scrollBody table {
 }
 div.dts div.dataTables_paginate,
 div.dts div.dataTables_length {
-  display: none;
+  display: inline-block;
 }
 
 div.DTS div.dataTables_scrollBody table {

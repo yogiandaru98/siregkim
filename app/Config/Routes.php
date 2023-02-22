@@ -53,17 +53,25 @@ $routes->get('mahasiswa/profile', 'Mahasiswa::index');
 $routes->post('mahasiswa/profile/create', 'Mahasiswa::saveProfile');
 $routes->get('mahasiswa/profile/edit', 'Mahasiswa::editProfile');
 $routes->post('mahasiswa/profile/edit/action', 'Mahasiswa::updateProfile');
-$routes->get('mahasiswa/pkl', 'Mahasiswa::Pkl');
-$routes->post('mahasiswa/pkl/create/action', 'Mahasiswa::savePkl');
-$routes->get('mahasiswa/pkl/edit', 'Mahasiswa::editPkl');
-$routes->post('mahasiswa/pkl/edit/action', 'Mahasiswa::updatePkl');
-$routes->post('mahasiswa/pkl/buktiSeminar', 'Mahasiswa::updateBuktiSeminar');
+$routes->get('user/edit/password', 'AuthUser::gantiPassword');
+$routes->post('user/edit/password/action', 'AuthUser::gantiPasswordAction');
+$routes->get('mahasiswa/pkl', 'PKL::index');
+$routes->post('mahasiswa/pkl/create/action', 'PKL::savePkl');
+$routes->get('mahasiswa/pkl/edit', 'PKL::editPkl');
+$routes->post('mahasiswa/pkl/edit/action', 'PKL::updatePkl');
+$routes->get('mahasiswa/pkl/buktiSeminar/create', 'PKL::createBuktiSeminar');
+$routes->post('mahasiswa/pkl/buktiSeminar/create/action', 'PKL::saveBuktiSeminar');
+$routes->get('mahasiswa/pkl/buktiSeminar/edit', 'PKL::editBuktiSeminar');
+$routes->post('mahasiswa/pkl/buktiSeminar/edit/action', 'PKL::updateBuktiSeminar');
 
 //validasi
 $routes->get('validasi/pkl', 'ValidasiReg::readPkl');
-$routes->get('validasi/pkl/(:num)', 'ValidasiReg::detailPkl/$1');
-$routes->post('validasi/pkl/(:num)/action', 'ValidasiReg::updatePkl/$1');
+$routes->get('validasi/pkl/(:num)', 'ValidasiReg::updatePkl/$1');
+$routes->post('validasi/pkl/(:num)/action', 'ValidasiReg::savePkl/$1');
 
+$routes->get('validasi/seminar', 'ValidasiReg::readSeminar');
+$routes->get('validasi/seminar/(:num)', 'ValidasiReg::detailSeminar/$1');
+$routes->post('validasi/seminar/(:num)/action', 'ValidasiReg::updateSeminar/$1');
 
 
 
@@ -77,7 +85,7 @@ $routes->post('superadmin/create/akun', 'Superadmin::saveAkun');
 
 
 // karina testing view
-$routes->get('/', 'Home::index');
+$routes->get('/', 'AuthUser::index');
 $routes->get('forgotpass', 'Pages::forgotpass');
 // $routes->get('dashboard', 'Pages::dashboard');
 // $routes->get('profile', 'Pages::profile');

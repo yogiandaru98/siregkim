@@ -29,6 +29,18 @@
 
                             </tr>
                             <tr>
+                                <td style="width: 20% !important;">Tahun Akademik</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= $pkl['tahun_akademik'] ?></td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Semester</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= $pkl['semester'] ?></td>
+
+                            </tr>
+                            <tr>
                                 <td style="width: 20% !important;">Prodi</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;"><?= $pkl['prodi'] ?></td>
@@ -37,25 +49,43 @@
                             <tr>
                                 <td style="width: 20% !important;">Periode Seminar Pkl</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;"><?= $pkl['periode_seminar_pkl'] ?></td>
+                                <td style="width: 75% !important;"><?= date_indo2($pkl['periode_seminar_pkl']); ?></td>
 
                             </tr>
                             <tr>
-                                <td style="width: 20% !important;">Lokasi Pkl</td>
+                                <td style="width: 20% !important;">Mitra Pkl</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;"><?= $pkl['lokasi_pkl'] ?></td>
+                                <td style="width: 75% !important;"><?= $pkl['nama_mitra_pkl'] ?></td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Domisili Pkl</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= $pkl['domisili_pkl'] ?></td>
 
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">Dosen Pembimbing Akademik</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;"><?= $pkl['dosen_pembimbing_akademik'] ?></td>
+                                <td style="width: 75% !important;"><?= $pkl['nama_dosen_akademik'] ?></td>
 
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">NIP Pembimbing Akademik</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;"><?= $pkl['nip_pembimbing_akademik'] ?></td>
+                                <td style="width: 75% !important;"><?= $pkl['nip_dosen_akademik'] ?></td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Dosen Pembimbing PKL</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= $pkl['nama_dosen_pkl'] ?></td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">NIP Pembimbing pkl</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= $pkl['nip_dosen_pkl'] ?></td>
 
                             </tr>
                             <tr>
@@ -77,6 +107,12 @@
 
                             </tr>
                             <tr>
+                                <td style="width: 20% !important;">TOEFL</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= ($pkl['sks']) ? $pkl['sks'] : 'Belum ada' ?></td>
+
+                            </tr>
+                            <tr>
                                 <td style="width: 20% !important;">IPK</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;"><?= $pkl['ipk'] ?></td>
@@ -91,33 +127,19 @@
                             <tr>
                                 <td style="width: 20% !important;">Pesan Admin</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if ($pkl['pesan_admin']) : ?>
-                                        <?= $pkl['pesan_admin'] ?>
-                                    <?php else : ?>
-                                        Tidak Ada
-                                    <?php endif; ?>
+                                <td style="width: 75% !important;" class="linkify">
+                                    <?= ($pkl['pesan_admin']) ? $pkl['pesan_admin'] : 'Tidak Ada'  ?>
+
                                 </td>
 
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">Berkas Kelengkapan</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;"><a href="/berkas/pkl/<?= $pkl['berkas_kelengkapan'] ?>" target="_blank">Unduh Berkas</a></td>
+                                <td style="width: 75% !important;"><a href="/berkas/pkl/kelengkapan/<?= $pkl['berkas_kelengkapan'] ?>" target="_blank">Unduh Berkas</a></td>
 
                             </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Berkas Persiapan Seminar</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if ($pkl['status_pkl'] != "Valid") : ?>
-                                        Data Anda Belum Di Validasi Oleh Admin
-                                    <?php else : ?>
-                                        <a href="/berkas/pkl/<?= $pkl['berkas_seminar_pkl'] ?>" target="_blank">Unduh</a>
-                                </td>
-                            <?php endif; ?>
-
-                            </tr>
+                            
                             </tbody>
                         </table>
                     </div>
@@ -125,6 +147,112 @@
             </div>
         </div>
 </div>
+
+<?php //if(!empty($pkl['lokasi_seminar_pkl'])) :// 
+?>
+<div class="page-heading">
+    <h3>Jadwal Seminar</h3>
+</div>
+<div class="page-content">
+    <section class="row">
+        <div class="col-12 col-lg-9">
+            <div class="row">
+                <div class="col-6 col-lg-3 col-md-6">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card p-3">
+                    <div class="table-responsive">
+                        <table class="table table-borderless">
+
+                            <tr>
+                                <td style="width: 20% !important;">Tanggal Seminar</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($jadwal['tanggal'])) : ?>
+                                        <?= $jadwal['tanggal'] ?>
+                                    <?php else : ?>
+                                        Belum Ditentukan
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Jam Mulai</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($jadwal['jam_mulai'])) : ?>
+                                        <?= $jadwal['jam_mulai'] ?>
+                                    <?php else : ?>
+                                        Belum Ditentukan
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Jam Selesai</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($jadwal['jam_selesai'])) : ?>
+                                        <?= $jadwal['jam_selesai'] ?>
+                                    <?php else : ?>
+                                        Belum Ditentukan
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Lokasi Seminar</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($jadwal['lokasi_seminar'])) : ?>
+                                        <?= $jadwal['lokasi_seminar'] ?>
+                                    <?php else : ?>
+                                        Belum Ditentukan
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Berkas Seminar</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($jadwal['berkas_seminar'])) : ?>
+                                        <?= $jadwal['berkas_seminar'] ?>
+                                        <a href="/berkas/pkl/<?= $jadwal['berkas_seminar'] ?>" target="_blank">Unduh</a>
+                                    <?php else : ?>
+                                        Belum Ada
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Pesan Koordinator</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;" class="linkify">
+                                    <?php if (!empty($jadwal['pesan_koor'])) : ?>
+                                        <?= $jadwal['pesan_koor'] ?>
+                                    <?php else : ?>
+                                        Belum Ada
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<?php // endif; 
+?>
+
+<?php // if(!empty($pkl['lokasi_seminar_pkl'])) : 
+?>
 <div class="page-heading">
     <h3>Bukti Seminar</h3>
 </div>
@@ -140,45 +268,11 @@
             <div class="col-12">
                 <div class="card p-3">
                     <div class="col-12 d-flex justify-content-end">
-                        <a class="btn btn-primary" href="<?= site_url('/mahasiswa/profile/edit') ?>" data-bs-toggle="modal"
-                                    data-bs-target="#inlineForm" >Unggah Bukti</a>
-                                    <div class="modal fade text-left" id="inlineForm" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel33" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                        role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel33">Unggah Bukti Seminar</h4>
-                                                <button type="button" class="close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <form action="/mahasiswa/pkl/buktiSeminar" method="POST" enctype="multipart/form-data">
-                                                <div class="modal-body">
-                                                    <label>Bukti Seminar</label>
-                                                    <i>Jadikan 1 dalam satu kesatuan dokumen pdf</i>
-                                                    <div class="form-group">
-                                                        <input type="file" placeholder="Bukti Seminar" name="bukti_seminar"
-                                                            class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Close</span>
-                                                    </button>
-                                                    <button type="submit" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Unggah</span>
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
+                        <?php if (!empty($bukti['bukti_seminar'])) : ?>
+                            <a class="btn btn-primary" href="/mahasiswa/pkl/buktiSeminar/edit" >Edit Bukti</a>
+                            <?php else : ?>
+                                <a class="btn btn-primary" href="/mahasiswa/pkl/buktiSeminar/create" >Unggah Bukti</a>
+                        <?php endif; ?>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-borderless">
@@ -186,24 +280,106 @@
                                 <td style="width: 20% !important;">Bukti Seminar</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;">
-                                <?php if ($pkl['bukti_seminar_pkl']) : ?>
-                                <a href="/berkas/pkl/<?= $pkl['bukti_seminar_pkl'] ?>" target="_blank">Unduh</a>
-                                <?php else : ?>
-                                    <a href="" data-bs-toggle="modal"
-                                    data-bs-target="#inlineForm">Unggah Berkas</a>
-                                <?php endif; ?>
+                                    <?php if (!empty($bukti['bukti_seminar'])) : ?>
+                                        <a href="/berkas/pkl/bukti/seminar/<?= $bukti['bukti_seminar'] ?>" target="_blank">Unduh</a>
+                                    <?php else : ?>
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#inlineForm">Unggah Berkas</a>
+                                    <?php endif; ?>
 
-                            </td>
+                                </td>
+                            <tr>
+                                <td style="width: 20% !important;">Laporan Final PKL</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($bukti['laporan_pkl'])) : ?>
+                                        <a href="/berkas/pkl/bukti/laporan/<?= $bukti['laporan_pkl'] ?>" target="_blank">Unduh</a>
+                                    <?php else : ?>
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#inlineForm">Unggah Berkas</a>
+                                    <?php endif; ?>
+
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Tanggal Seminar</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($bukti['tanggal_seminar'])) : ?>
+                                        <?= date_indo($bukti['tanggal_seminar']) ?>
+                                    <?php else : ?>
+                                        Belum Ada
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Nilai Seminar Angka</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($bukti['nilai_seminar_angka'])) : ?>
+                                        <?= $bukti['nilai_seminar_angka'] ?>
+                                    <?php else : ?>
+                                        Belum Ada
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Nilai Seminar Huruf</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($bukti['nilai_seminar_huruf'])) : ?>
+                                        <?= $bukti['nilai_seminar_huruf'] ?>
+                                    <?php else : ?>
+                                        Belum Ada
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Nilai PKL Angka</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($bukti['nilai_pkl_angka'])) : ?>
+                                        <?= $bukti['nilai_pkl_angka'] ?>
+                                    <?php else : ?>
+                                        Belum Ada
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Nilai PKL Huruf</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                    <?php if (!empty($bukti['nilai_pkl_huruf'])) : ?>
+                                        <?= $bukti['nilai_pkl_huruf'] ?>
+                                    <?php else : ?>
+                                        Belum Ada
+                                    <?php endif; ?>
+                                </td>
 
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">Status Bukti</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;">
-                                    <?php if ($pkl['bukti_seminar_pkl']) : ?>
-                                        <?= $pkl['status_bukti_seminar_pkl'] ?>
+                                    <?php if (!empty($bukti['bukti_seminar'])) : ?>
+                                        <?= $bukti['status_bukti_seminar'] ?>
                                     <?php else : ?>
-                                        Anda Belum Mengunggah Bukti Seminar
+                                        Belum Ada
+                                    <?php endif; ?>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Pesan Admin</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;" class="linkify">
+                                    <?php if (!empty($bukti['pesan_admin'])) : ?>
+                                        <?= $bukti['pesan_admin'] ?>
+                                    <?php else : ?>
+                                        Tidak Ada Pesan
                                     <?php endif; ?>
                                 </td>
 
@@ -216,7 +392,43 @@
             </div>
         </div>
 </div>
+<?php //endif; 
+?>
 
+<script>
+    function isLink(str) {
+  // Regular expression to match URLs
+  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  
+  // Return true if the string matches the URL regex
+  return str.match(urlRegex);
+}
+
+function createLink(text) {
+  var urlRegex = /((http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?)/gi;
+  return text.replace(urlRegex, function(url) {
+    return '<a href="' + url + '">' + url + '</a>';
+  })
+}
+// mengambil semua elemen dengan kelas 'linkify'
+var linkifyElements = document.querySelectorAll('.linkify');
+
+// memproses setiap elemen
+linkifyElements.forEach(function(linkifyElement) {
+  // mendapatkan teks dari elemen
+  var text = linkifyElement.textContent;
+
+  // memeriksa apakah teks mengandung link
+  if (isLink(text)) {
+    // membuat link yang baru dengan fungsi createLink()
+    var link = createLink(text);
+
+    // mengganti teks asli dengan link baru
+    linkifyElement.innerHTML = link;
+  }
+});
+
+</script>
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">

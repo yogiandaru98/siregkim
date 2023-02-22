@@ -14,7 +14,7 @@ class ValidasiReg extends BaseController
     public function readPkl()
     {
         $data = [
-            'title' => 'Data PKL',
+            'title' => 'Registrasi',
             'regPkl' => $this->RegistrasiPKL->getPklAll(),
         ];
         return view('pages/validasi/pkl/read', $data);
@@ -23,17 +23,17 @@ class ValidasiReg extends BaseController
     {
         $data = [
             'title' => 'Detail PKL',
-            'regPkl' => $this->RegistrasiPKL->getDetailPkl($id),
+            'regPkl' => $this->RegistrasiPKL->getDetailPklAdmin($id),
         ];
         return view('pages/validasi/pkl/detail', $data);
     }
     public function updatePkl($id)
     {
         $data = [
-            'title' => 'Update PKL',
-            'regPkl' => $this->RegistrasiPKL->getDetailPkl($id),
+            'title' => 'Registrasi',
+            'pkl' => $this->RegistrasiPKL->getDetailPklAdmin($id),
         ];
-        return view('pages/validasi/pkl/update', $data);
+        return view('pages/validasi/pkl/updatePkl', $data);
     }
     public function savePkl($id)
     {
@@ -50,11 +50,50 @@ class ValidasiReg extends BaseController
         }
         $dataPkl=[
             'status_pkl' =>  htmlspecialchars($this->request->getVar('status_pkl')),
-            'status_bukti_seminar' => htmlspecialchars($this->request->getVar('status_bukti_seminar')),
+            'pesan_admin' =>  htmlspecialchars($this->request->getVar('pesan_admin')),
         ];
         $this->RegistrasiPKL->update($id, $dataPkl);
         session()->setFlashdata('pesan', 'Data berhasil diupdate');
-        return redirect()->to('/readPkl');
+        return redirect()->to('/validasi/pkl');
     }
+
+    public function readBukti(){
+        $data = [
+            'title' => 'Bukti',
+            'regBukti' => $this->RegistrasiPKL->getBuktiAll(),
+        ];
+        return view('pages/validasi/bukti/read', $data);
+    }
+
+    public function updateBukti($id)
+    {
+        $data = [
+            'title' => 'Registrasi',
+            'bukti' => $this->RegistrasiPKL->getDetailBuktiAdmin($id),
+        ];
+        return view('pages/validasi/bukti/updateBukti', $data);
+    }
+    public function saveBukti($id)
+    {
+        $validatedBukti = $this->validate([
+            'status_bukti' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Status harus diisi',
+                ]
+            ],
+        ]);
+        if(!$validatedBukti){
+            return redirect()->to('/updateBukti/'.$id)->withInput();
+        }
+        $dataBukti=[
+            'status_bukti' =>  htmlspecialchars($this->request->getVar('status_bukti')),
+            'pesan_admin' =>  htmlspecialchars($this->request->getVar('pesan_admin')),
+        ];
+        $this->RegistrasiPKL->update($id, $dataBukti);
+        session()->setFlashdata('pesan', 'Data berhasil diupdate');
+        return redirect()->to('/validasi/bukti');
+    }
+
 
 }

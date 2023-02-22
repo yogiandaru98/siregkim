@@ -5,10 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIREGKIM</title>
+    <!-- Include base CSS (optional) -->
+<!-- <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/base.min.css"
+/>
+- Or versioned -->
+<!-- <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/base.min.css"
+/> --> 
 
+<!-- Include Choices CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
+/>
+<!-- Or versioned -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css"
+/>
+
+<!-- Include Choices JavaScript (latest) -->
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+<!-- Or versioned -->
+<script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
     <link rel="stylesheet" href="<?= base_url('bootstrap/css/bootstrap.css')?> ">
     <link rel="stylesheet" href="<?= base_url('assets/css/main/app.css')?> ">
     <link rel="stylesheet" href="<?= base_url('assets/css/main/app-dark.css')?> ">
+    <link rel="stylesheet" href="<?= base_url('assets/extensions/choices.js/public/assets/styles/choices.css')?> ">
+    <link rel="stylesheet" href="<?= base_url('assets/extensions/choices.js/public/assets/styles/choices.min.css')?> ">
+
     <link rel="shortcut icon" href="<?= base_url('assets/images/logo/favicon.svg')?>" type="image/x-icon">
     <link rel="shortcut icon" href="<?= base_url('assets/images/logo/favicon.png')?>" type="image/png">
     <link rel="stylesheet" href="<?= base_url('assets/css/shared/iconly.css')?> ">
@@ -81,7 +109,7 @@
                                     <a href="<?= site_url("mahasiswa/profile") ?>">Profil</a>
                                 </li>
                                 <li class="submenu-item ">
-                                    <a href="changepass">Ganti Kata Sandi</a>
+                                    <a href="<?= site_url("user/edit/password") ?>">Ganti Kata Sandi</a>
                                 </li>
                             </ul>
                         </li>
@@ -94,28 +122,27 @@
                                 <li class="submenu-item <?= ($title == "PKL") ? 'active' : '' ?>">
                                     <a href="/mahasiswa/pkl">Praktik Kerja Lapangan</a>
                                 </li>
-                                <li class="submenu-item <?= ($title == "PTA1") ? 'active' : '' ?>">
-                                    <a href="pra-ta">Pra-Tugas Akhir 1</a>
-                                </li>
-                                <li class="submenu-item <?= ($title == "TA1") ? 'active' : '' ?>">
-                                    <a href="ta-1">Tugas Akhir 1</a>
-                                </li>
-                                <li class="submenu-item <?= ($title == "TA2") ? 'active' : '' ?>">
-                                    <a href="ta-2">Tugas Akhir 2</a>
-                                </li>
-                                <li class="submenu-item <?= ($title == "KOMPRE") ? 'active' : '' ?>">
-                                    <a href="kompre">Ujian Komprehensif</a>
-                                </li>
+
                             </ul>
                         </li>
-                        <li class="sidebar-item ">
-                            <a href="profile" class='sidebar-link'>
-                                <i class="bi bi-mortarboard-fill"></i>
-                                <span>Registrasi Alumni</span>
+                        <li class="sidebar-item  has-sub <?= ($title == "Registrasi"||$title == "Bukti") ? 'active' : '' ?>">
+                            <a href="#" class='sidebar-link'>
+                                <i class="bi bi-stack"></i>
+                                <span>Validasi</span>
                             </a>
+                            <ul class="submenu" style="<?= ($title == "Registrasi"||$title == "Bukti") ? 'display: block;' : '' ?>">
+                                <li class="submenu-item <?= ($title == "Registrasi") ? 'active' : '' ?>">
+                                    <a href="/validasi/pkl">Registrasi Seminar PKL</a>
+                                </li>
+                                <li class="submenu-item <?= ($title == "Bukti") ? 'active' : '' ?>">
+                                    <a href="/admin/bukti_seminar">Bukti Seminar</a>
+                                </li>
+
+                            </ul>
                         </li>
+                        
                         <li class="sidebar-item ">
-                            <a href="logout" class='sidebar-link'>
+                            <a href="/logout" class='sidebar-link'>
                                 <i class="bi bi-box-arrow-left"></i>
                                 <span>Keluar</span>
                             </a>
@@ -135,6 +162,8 @@
     </div>
     <script src="<?= base_url('assets/js/bootstrap.js')?> "></script>
     <script src="<?= base_url('assets/js/app.js')?> "></script>
+    <script src="<?= base_url('assets/js/pages/form-element-select.js')?> "></script>
+    <script src="<?= base_url('assets/extensions/choices.js/public/assets/scripts/choices.js')?> "></script>
 
     <!-- Need: Apexcharts -->
     <script src="<?= base_url('assets/extensions/apexcharts/apexcharts.min.js')?> "></script>

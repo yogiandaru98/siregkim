@@ -24,12 +24,12 @@
                             <tr>
                                 <td style="width: 20% !important;">Nama Lengkap</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;"><?= $profilMahasiswa['nama_lengkap'] ?></td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['nama'] ?></td>
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">NPM</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;"><?= $profilMahasiswa['npm'] ?></td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['username'] ?></td>
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">Tanggal Lahir</td>
@@ -40,6 +40,21 @@
                                 <td style="width: 20% !important;">Tanggal Masuk</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;"><?= date_format(new DateTime($profilMahasiswa['tanggal_masuk']),"d F Y") ?></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Status</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['status_mahasiswa'] ?></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">Nama Dosen Pembimbing Akademik</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['nama_dosen_pembimbing_akademik'] ?></td>
+                            </tr>
+                            <tr>
+                                <td style="width: 20% !important;">NIP Dosen Pembimbing Akademik</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;"><?= $profilMahasiswa['nip_dosen_pembimbing_akademik'] ?></td>
                             </tr>
                             <tr>
                                 <td style="width: 20% !important;">Semester</td>

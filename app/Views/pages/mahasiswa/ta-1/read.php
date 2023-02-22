@@ -37,7 +37,7 @@
                             <tr>
                                 <td style="width: 20% !important;">Periode Seminar Tugas Akhir 1</td>
                                 <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;"><?= $ta1['periode_seminar_ta'] ?></td>
+                                <td style="width: 75% !important;"><?=  $ta1['periode_seminar_ta'] ?></td>
 
                             </tr>
                             <tr>

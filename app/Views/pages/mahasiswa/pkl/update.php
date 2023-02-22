@@ -41,32 +41,34 @@
                             <label for="lokasi_pkl">Lokasi PKL</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input require type="text" class="form-control <?= ($validation->hasError('dosen_pembimbing_akademik')) ? 'is-invalid' : ''; ?> ms-1" autocomplete="off" id="dosen_pembimbing_akademik" name="dosen_pembimbing_akademik" value="<?= $pkl['dosen_pembimbing_akademik']; ?>">
+
+                            <div class="form-group">
+                                <label for="dosen_pembimbing_akademik">Dosen Pembimbing Akademik</label>
+                            <select class="choices form-select" name="dosen_pembimbing_akademik" id="dosen_pa">
+                                <?php foreach ($dosen as $item) : ?>
+                                    <option value="<?= $item['id_user'] ?>"><?= $item['nama'] ?>  [ <?= $item['username'] ?> ]</option>
+                                <?php endforeach; ?>
+                            </select>
+                                    </div>
+                            <!-- <input require type="text" class="form-control <?= ($validation->hasError('dosen_pembimbing_akademik')) ? 'is-invalid' : ''; ?> ms-1" autocomplete="off" id="dosen_pembimbing_akademik" name="dosen_pembimbing_akademik" value="<?= set_value('dosen_pembimbing_akademik'); ?>"> -->
                             <div class="invalid-feedback">
                                 <?= $validation->getError('dosen_pembimbing_akademik') ?>
                             </div>
-                            <label for="dosen_pembimbing_akademik">Dosen Pembimbing Akademik</label>
                         </div>
                         <div class="form-floating mb-3">
-                            <input require type="number" class="form-control <?= ($validation->hasError('nip_pembimbing_akademik')) ? 'is-invalid' : ''; ?> ms-1" autocomplete="off" id="nip_pembimbing_akademik" name="nip_pembimbing_akademik" value="<?= $pkl['nip_pembimbing_akademik']; ?>">
-                            <div class="invalid-feedback">
-                                <?= $validation->getError('nip_pembimbing_akademik') ?>
-                            </div>
-                            <label for="nip_pembimbing_akademik">NIP Dosen Pembimbing Akademik</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input require type="text" class="form-control <?= ($validation->hasError('dosen_pembimbing_pkl')) ? 'is-invalid' : ''; ?> ms-1" autocomplete="off" id="dosen_pembimbing_pkl" name="dosen_pembimbing_pkl" value="<?= $pkl['dosen_pembimbing_pkl']; ?>">
+
+                            <div class="form-group">
+                                <label for="dosen_pembimbing_pkl">Dosen Pembimbing PKL</label>
+                            <select class="choices form-select" name="dosen_pembimbing_pkl" id="dosen_pa">
+                                <?php foreach ($dosen as $item) : ?>
+                                    <option value="<?= $item['id_user'] ?>" ><?= $item['nama'] ?>  [ <?= $item['username'] ?> ]</option>
+                                <?php endforeach; ?>
+                            </select>
+                                    </div>
+                            <!-- <input require type="text" class="form-control <?= ($validation->hasError('dosen_pembimbing_pkl')) ? 'is-invalid' : ''; ?> ms-1" autocomplete="off" id="dosen_pembimbing_pkl" name="dosen_pembimbing_pkl" value="<?= set_value('dosen_pembimbing_pkl'); ?>"> -->
                             <div class="invalid-feedback">
                                 <?= $validation->getError('dosen_pembimbing_pkl') ?>
                             </div>
-                            <label for="dosen_pembimbing_pkl">Dosen Pembimbing PKL</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input require type="number" class="form-control <?= ($validation->hasError('nip_pembimbing_pkl')) ? 'is-invalid' : ''; ?> ms-1" autocomplete="off" id="nip_pembimbing_pkl" name="nip_pembimbing_pkl" value="<?= $pkl['nip_pembimbing_pkl']; ?>">
-                            <div class="invalid-feedback">
-                                <?= $validation->getError('nip_pembimbing_pkl') ?>
-                            </div>
-                            <label for="nip_pembimbing_pkl">NIP Dosen Pembimbing PKL</label>
                         </div>
                         <div class="form-floating mb-3">
                             <input require type="text" class="form-control <?= ($validation->hasError('pembimbing_lapangan')) ? 'is-invalid' : ''; ?> ms-1" autocomplete="off" id="pembimbing_lapangan" name="pembimbing_lapangan" value="<?= $pkl['pembimbing_lapangan']; ?>">
