@@ -9,6 +9,11 @@ use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
 use App\Filters\IsLogin;
+use App\Filters\IsMahasiswa;
+use App\Filters\IsAdmin;
+use App\Filters\IsDosen;
+use App\Filters\IsKoor;
+use App\Filters\IsSuperadmin;
 
 class Filters extends BaseConfig
 {
@@ -25,6 +30,12 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'isLogin' => IsLogin::class,
+        'isMahasiswa' => IsMahasiswa::class,
+        'isDosen' => IsDosen::class,
+        'isKoor' => IsKoor::class,
+        'isAdmin' => IsAdmin::class,
+        'isSuperadmin' => IsSuperadmin::class,
+
     ];
 
     /**
@@ -71,6 +82,11 @@ class Filters extends BaseConfig
      * @var array
      */
     public $filters = [
-        'isLogin' => ['before' => ['dashboard', 'admin/*', 'dosen/*', 'mahasiswa/*']],
+        'isLogin' => ['before' => ['dashboard', 'user/*', 'user']],
+        'isMahasiswa' => ['before' => ['mahasiswa/*', 'mahasiswa']],
+        'isAdmin' => ['before' => ['validasi/*', 'kelengkapan/*', 'template/*', 'validasi', 'kelengkapan', 'template']],
+        'isKoor' => ['before' => ['lokasi/*', 'jadwal/*', 'lokasi', 'jadwal']],
+        'isSuperadmin' => ['before' => ['superadmin/*', 'superadmin']],
+
     ];
 }

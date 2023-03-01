@@ -55,13 +55,39 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td style=" width: 20% !important;">Dosen Pembimbing Akademik</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                <select class="choices form-select <?= ($validation->hasError('dosen_pembimbing_akademik')) ? 'is-invalid' : ''; ?>" name="dosen_pembimbing_akademik">
+                                    <?php foreach ($dosen as $item) : ?>
+                                    <option value="<?= $item['id_user'] ?>"><?= $item['nama'] ?> [ <?= $item['username'] ?> ]</option>
+                                <?php endforeach; ?>
+                            </select>
+                        </td>
+                            </tr>
+                            <tr>
                                 <td style=" width: 20% !important;">Jenis Kelamin</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;">
-                                <select class="form-control" name="jenis_kelamin">
+                                <select class="form-select <?= ($validation->hasError('jenis_kelamin')) ? 'is-invalid' : ''; ?>" name="jenis_kelamin">
                                     <!-- <option selected> -Pilih Jenis Kelamin- </option> -->
                                     <option selected value="Laki-Laki">Laki-laki</option>
                                     <option value="Perempuan">Perempuan</option>
+                                </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style=" width: 20% !important;">Status Mahasiswa</td>
+                                <td style="width: 5% !important;">:</td>
+                                <td style="width: 75% !important;">
+                                <select class="form-select <?= ($validation->hasError('status_mahasiswa')) ? 'is-invalid' : ''; ?>" name="status_mahasiswa">
+                                    <!-- <option selected> -Pilih Jenis Kelamin- </option> -->
+                                    <!-- option status mahasiswa -->
+                                    <option selected value="Aktif">Aktif</option>
+                                    <option value="Tidak Aktif">Tidak Aktif</option>
+                                    <option value="Lulus">Lulus</option>
+                                    <option value="Cuti">Cuti</option>
+                                    <option value="Keluar">Keluar</option>
                                     <div class="invalid-feedback">
                                 <?= $validation->getError('jenis_kelamin') ?>
                                     </div>
@@ -98,6 +124,7 @@
                                     </div>
                                 </td>
                             </tr>
+
                             <tr>
                                 <td>
 

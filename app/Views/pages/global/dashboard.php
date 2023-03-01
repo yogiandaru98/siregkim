@@ -15,11 +15,12 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h4>Chart Alumni</h4>
+                    <div class="card-header bg-info">
+                        <h3 class="text-light">Selamat Datang</h3>
                     </div>
-                    <div class="card-body">
-                        <div id="chart" class="chart"></div>
+                    <div class="card-body mt-3">
+                    <h4 class="card-title"><?= session()->get('nama') ?></h4>
+    <p class="card-text"><?= session()->get('username') ?></p>
                     </div>
                 </div>
             </div>

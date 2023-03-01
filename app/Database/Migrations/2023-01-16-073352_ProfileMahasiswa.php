@@ -21,14 +21,6 @@ class ProfileMahasiswa extends Migration
                 'constraint' => 255,
                 'unsigned' => true,
             ],
-            'nama_lengkap' => [
-                'type' => 'VARCHAR',
-                'constraint' => '70',
-            ],
-            'npm' => [
-                'type' => 'BIGINT',
-                'constraint' => '25',
-            ],
             'tanggal_lahir' => [
                 'type' => 'DATE',
                 // 'constraint' => '100',
@@ -36,6 +28,11 @@ class ProfileMahasiswa extends Migration
             'tanggal_masuk' => [
                 'type' => 'DATE',
                 // 'constraint' => '100',
+            ],
+            'dosen_pembimbing_akademik' => [
+                'type' => 'INT',
+                'constraint' => 255,
+                'unsigned' => true,
             ],
             'angkatan' => [
                 'type' => 'INT',
@@ -63,6 +60,10 @@ class ProfileMahasiswa extends Migration
                 'constraint' => '15',
                 
             ],
+            'status_mahasiswa'=> [
+                'type' => 'ENUM',
+                'constraint' => ['Aktif', 'Tidak Aktif', 'Lulus', 'Cuti', 'Keluar']
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,
@@ -73,6 +74,8 @@ class ProfileMahasiswa extends Migration
             ],
         ]);
         $this->forge->addKey('id_profile_mahasiswa', true);
+        $this->forge->addForeignKey('id_user', 'users', 'id_user', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('dosen_pembimbing_akademik', 'users', 'id_user', 'CASCADE', 'CASCADE');
         $this->forge->createTable('profile_mahasiswa');
     }
 

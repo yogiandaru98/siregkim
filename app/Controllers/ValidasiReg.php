@@ -9,31 +9,33 @@ class ValidasiReg extends BaseController
     public function __construct()
     {
         $this->RegistrasiPKL = new \App\Models\RegistrasiPKL();
+        $this->BuktiSeminar = new \App\Models\BuktiSeminarPKL();
+        $this->session = session();
 
     }
     public function readPkl()
     {
         $data = [
-            'title' => 'Data PKL',
+            'title' => 'Registrasi',
             'regPkl' => $this->RegistrasiPKL->getPklAll(),
         ];
-        return view('pages/validasi/validasiPkl/read', $data);
+        return view('pages/validasi/pkl/read', $data);
     }
     public function detailPkl($id)
     {
         $data = [
             'title' => 'Detail PKL',
-            'regPkl' => $this->RegistrasiPKL->getDetailPkl($id),
+            'regPkl' => $this->RegistrasiPKL->getDetailPklAdmin($id),
         ];
-        return view('pages/validasi/validasiPkl/detail', $data);
+        return view('pages/validasi/pkl/detail', $data);
     }
     public function updatePkl($id)
     {
         $data = [
-            'title' => 'Update PKL',
-            'regPkl' => $this->RegistrasiPKL->getDetailPkl($id),
+            'title' => 'Registrasi',
+            'pkl' => $this->RegistrasiPKL->getDetailPklAdmin($id),
         ];
-        return view('pages/validasi/validasiPkl/update', $data);
+        return view('pages/validasi/pkl/updatePkl', $data);
     }
     public function savePkl($id)
     {
@@ -50,11 +52,53 @@ class ValidasiReg extends BaseController
         }
         $dataPkl=[
             'status_pkl' =>  htmlspecialchars($this->request->getVar('status_pkl')),
-            'status_bukti_seminar' => htmlspecialchars($this->request->getVar('status_bukti_seminar')),
+            'pesan_admin' =>  htmlspecialchars($this->request->getVar('pesan_admin')),
         ];
         $this->RegistrasiPKL->update($id, $dataPkl);
         session()->setFlashdata('pesan', 'Data berhasil diupdate');
-        return redirect()->to('/readPkl');
+        return redirect()->to('/validasi/pkl');
     }
+
+    public function readBukti(){
+        $data = [
+            'title' => 'Bukti',
+            'regBukti' => $this->BuktiSeminar->getBuktiAll(),
+        ];
+        return view('pages/validasi/bukti/read', $data);
+    }
+
+    public function updateBukti($id)
+    {
+        $data = [
+            'title' => 'Bukti',
+            'regBukti' => $this->BuktiSeminar->getDetailBukti($id),
+            'pkl' => $this->RegistrasiPKL->getDetailPklAdmin($id),
+            'validation' => \Config\Services::validation(),
+        ];
+        return view('pages/validasi/bukti/updateBukti', $data);
+    }
+    public function saveBukti($id)
+    {
+        $validatedBukti = $this->validate([
+            'status_bukti_seminar' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Status harus diisi',
+                ]
+            ],
+        ]);
+        $id_pkl = $this->BuktiSeminar->where('id_bukti_seminar_pkl', $id)->first();
+        if(!$validatedBukti){
+            return redirect()->to('/validasi/seminar/'.$id_pkl['id_pkl'])->withInput();
+        }
+        $dataBukti=[
+            'status_bukti_seminar' =>  htmlspecialchars($this->request->getVar('status_bukti_seminar')),
+            'pesan_admin' =>  htmlspecialchars($this->request->getVar('pesan_admin')),
+        ];
+        $this->BuktiSeminar->update($id, $dataBukti);
+        session()->setFlashdata('pesan', 'Data berhasil diupdate');
+        return redirect()->to('/validasi/seminar');
+    }
+
 
 }

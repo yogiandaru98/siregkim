@@ -15,24 +15,23 @@ class RegistrasiPKL extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'id_users',
+        'id_user',
         'judul_pkl',
+        'tahun_akademik',
+        'semester',
         'prodi',
+        'nama_mitra_pkl',
+        'domisili_pkl',
         'periode_seminar_pkl',
-        'lokasi_pkl',
-        'dosen_pembimbing_akademik',
-        'nip_pembimbing_akademik',
         'dosen_pembimbing_pkl',
-        'nip_pembimbing_pkl',
         'pembimbing_lapangan',
         'no_pembimbing_lapangan',
+        'toefl',
         'sks',
         'ipk',
         'berkas_kelengkapan',
-        'berkas_seminar_pkl',
-        'bukti_seminar_pkl',
+        'persetujuan_seminar_pkl',
         'status_pkl',
-        'status_bukti_seminar_pkl',
         'pesan_admin',
     ];
 
@@ -62,17 +61,55 @@ class RegistrasiPKL extends Model
     
     public function getPklAll(){
         return $this->db->table('pkl_mahasiswa')->select('pkl_mahasiswa.*, profile_mahasiswa.*, users.*')
-        ->join('profile_mahasiswa', 'profile_mahasiswa.id_users = pkl_mahasiswa.id_users')
-        ->join('users', 'users.id_users = pkl_mahasiswa.id_users')
+        ->join('profile_mahasiswa', 'profile_mahasiswa.id_user = pkl_mahasiswa.id_user', 'left')
+        ->join('users', 'users.id_user = pkl_mahasiswa.id_user', 'left')
         ->get()->getResultArray();
     }
 
-    public function getDetailPkl($id){
-        return $this->db->table('pkl_mahasiswa')->select('pkl_mahasiswa.*, profile_mahasiswa.*, users.*')
-        ->join('profile_mahasiswa', 'profile_mahasiswa.id_users = pkl_mahasiswa.id_users')
-        ->join('users', 'users.id_users = pkl_mahasiswa.id_users')
+    public function getPkl($id){
+        return $this->db->table('pkl_mahasiswa')->select('pkl_mahasiswa.*, profile_mahasiswa.*, mahasiswa.username AS npm, mahasiswa.nama AS nama, mahasiswa.id_user AS id_user')
+        ->join('profile_mahasiswa', 'profile_mahasiswa.id_user = pkl_mahasiswa.id_user', 'left')
+        ->join('users AS mahasiswa', 'mahasiswa.id_user = pkl_mahasiswa.id_user', 'left')
         ->where('pkl_mahasiswa.id_pkl', $id)
         ->get()->getRowArray();
     }
+
+    public function getDetailPkl($id){
+        return $this->db->table('pkl_mahasiswa')->select('pkl_mahasiswa.*,
+        dosen_akademik.username AS nip_dosen_akademik, dosen_akademik.nama AS nama_dosen_akademik,
+        dosen_pkl.username AS nip_dosen_pkl, dosen_pkl.nama AS nama_dosen_pkl', 'left')
+        ->join('profile_mahasiswa', 'profile_mahasiswa.id_user = pkl_mahasiswa.id_user', 'left')
+        ->join('users', 'users.id_user = pkl_mahasiswa.id_user', 'left')
+        ->join('users AS dosen_akademik', 'dosen_akademik.id_user = profile_mahasiswa.dosen_pembimbing_akademik', 'left')
+        ->join('users AS dosen_pkl', 'dosen_pkl.id_user = pkl_mahasiswa.dosen_pembimbing_pkl', 'left')
+        ->where('pkl_mahasiswa.id_user', $id)
+        ->get()->getRowArray();
+    }
+
+    public function getDetailPklAdmin($id){
+        return $this->db->table('pkl_mahasiswa')->select('pkl_mahasiswa.*,
+        dosen_akademik.username AS nip_dosen_akademik, dosen_akademik.nama AS nama_dosen_akademik,
+        dosen_pkl.username AS nip_dosen_pkl, dosen_pkl.nama AS nama_dosen_pkl', 'left')
+        ->join('profile_mahasiswa', 'profile_mahasiswa.id_user = pkl_mahasiswa.id_user', 'left')
+        ->join('users', 'users.id_user = pkl_mahasiswa.id_user', 'left')
+        ->join('users AS dosen_akademik', 'dosen_akademik.id_user = profile_mahasiswa.dosen_pembimbing_akademik', 'left')
+        ->join('users AS dosen_pkl', 'dosen_pkl.id_user = pkl_mahasiswa.dosen_pembimbing_pkl', 'left')
+        ->where('pkl_mahasiswa.id_pkl', $id)
+        ->get()->getRowArray();
+    }
+
+    public function getAllDetailPkl(){
+        return $this->db->table('pkl_mahasiswa')->select('pkl_mahasiswa.*,
+        dosen_akademik.username AS nip_dosen_akademik, dosen_akademik.nama AS nama_dosen_akademik,
+        dosen_pkl.username AS nip_dosen_pkl, dosen_pkl.nama AS nama_dosen_pkl')
+        ->join('profile_mahasiswa', 'profile_mahasiswa.id_user = pkl_mahasiswa.id_user','left')
+        ->join('users', 'users.id_user = pkl_mahasiswa.id_user','left')
+        ->join('profile_mahasiswa AS dosen_akademik', 'users.id_user = dosen_akademik.dosen_pembimbing_akademik','left')
+        ->join('users AS dosen_pkl', 'dosen_pkl.id_user = pkl_mahasiswa.dosen_pembimbing_pkl','left')
+        ->get()->getResultArray();
+    }
+
+    
+    
 
 }

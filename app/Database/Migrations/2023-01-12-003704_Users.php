@@ -18,7 +18,7 @@ class Users extends Migration
             ],
             'username' => [
                 'type' => 'BIGINT',
-                'constraint' => '18',
+                'constraint' => '19',
             ],
             'password' => [
                 'type' => 'VARCHAR',
@@ -54,6 +54,11 @@ class Users extends Migration
                 'default' => '0',
             ],
             'is_admin' => [
+                'type' => 'INT',
+                'constraint' => '1',
+                'default' => '0',
+            ],
+            'is_alumni' => [
                 'type' => 'INT',
                 'constraint' => '1',
                 'default' => '0',
