@@ -145,7 +145,7 @@
                                     <td style="width: 20% !important;">Pesan Admin</td>
                                     <td style="width: 5% !important;">:</td>
                                     <td>
-                                        <textarea name="pesan_admin" id="pesan_admin" cols="30" rows="10"><?= ($pkl['pesan_admin']) ? $pkl['pesan_admin'] : 'Tidak Ada'  ?></textarea>
+                                        <textarea name="pesan_admin" class="form-control textrea" id="pesan_admin" cols="30" rows="10"><?= ($pkl['pesan_admin']) ? $pkl['pesan_admin'] : 'Tidak Ada'  ?></textarea>
                                     </td>
                                 </tr>
                                 <tr>

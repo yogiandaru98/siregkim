@@ -19,6 +19,7 @@ class Mahasiswa extends BaseController
         $this->profilMahasiswa = new \App\Models\ProfileMahasiswa();
         $this->modelUsers = new \App\Models\Users();
         $this->modelPKL = new \App\Models\RegistrasiPKL();
+        $this->session = session();
 
         // $this->load->helper('tgl_indo', 'custom_fungsi');
         // helper('convertText');

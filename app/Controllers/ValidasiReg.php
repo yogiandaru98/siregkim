@@ -9,6 +9,8 @@ class ValidasiReg extends BaseController
     public function __construct()
     {
         $this->RegistrasiPKL = new \App\Models\RegistrasiPKL();
+        $this->BuktiSeminar = new \App\Models\BuktiSeminarPKL();
+        $this->session = session();
 
     }
     public function readPkl()
@@ -60,7 +62,7 @@ class ValidasiReg extends BaseController
     public function readBukti(){
         $data = [
             'title' => 'Bukti',
-            'regBukti' => $this->RegistrasiPKL->getBuktiAll(),
+            'regBukti' => $this->BuktiSeminar->getBuktiAll(),
         ];
         return view('pages/validasi/bukti/read', $data);
     }
@@ -68,31 +70,34 @@ class ValidasiReg extends BaseController
     public function updateBukti($id)
     {
         $data = [
-            'title' => 'Registrasi',
-            'bukti' => $this->RegistrasiPKL->getDetailBuktiAdmin($id),
+            'title' => 'Bukti',
+            'regBukti' => $this->BuktiSeminar->getDetailBukti($id),
+            'pkl' => $this->RegistrasiPKL->getDetailPklAdmin($id),
+            'validation' => \Config\Services::validation(),
         ];
         return view('pages/validasi/bukti/updateBukti', $data);
     }
     public function saveBukti($id)
     {
         $validatedBukti = $this->validate([
-            'status_bukti' => [
+            'status_bukti_seminar' => [
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Status harus diisi',
                 ]
             ],
         ]);
+        $id_pkl = $this->BuktiSeminar->where('id_bukti_seminar_pkl', $id)->first();
         if(!$validatedBukti){
-            return redirect()->to('/updateBukti/'.$id)->withInput();
+            return redirect()->to('/validasi/seminar/'.$id_pkl['id_pkl'])->withInput();
         }
         $dataBukti=[
-            'status_bukti' =>  htmlspecialchars($this->request->getVar('status_bukti')),
+            'status_bukti_seminar' =>  htmlspecialchars($this->request->getVar('status_bukti_seminar')),
             'pesan_admin' =>  htmlspecialchars($this->request->getVar('pesan_admin')),
         ];
-        $this->RegistrasiPKL->update($id, $dataBukti);
+        $this->BuktiSeminar->update($id, $dataBukti);
         session()->setFlashdata('pesan', 'Data berhasil diupdate');
-        return redirect()->to('/validasi/bukti');
+        return redirect()->to('/validasi/seminar');
     }
 
 

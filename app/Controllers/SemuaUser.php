@@ -6,6 +6,10 @@ use App\Controllers\BaseController;
 
 class SemuaUser extends BaseController
 {
+    public function __construct()
+    {
+        $this->session = session();
+    }
     public function index()
     {
         //

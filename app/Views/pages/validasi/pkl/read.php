@@ -61,7 +61,14 @@
                                         <td><?= $item['username'] ?></td>
                                         <td><?= $item['judul_pkl'] ?></td>
                                         <td><?= $item['nama_mitra_pkl'] ?></td>
-                                        <td><?= $item['status_pkl'] ?></td>
+                                        
+                                        <td><?php if ($item['status_pkl'] == "Diproses") : ?>
+                                                <span class="badge bg-warning">Belum Divalidasi</span>
+                                            <?php elseif ($item['status_pkl'] == "Valid") : ?>
+                                                <span class="badge bg-success">Valid</span>
+                                            <?php elseif ($item['status_pkl'] == "Invalid") : ?>
+                                                <span class="badge bg-danger">Tidak Valid</span>
+                                            <?php endif; ?></td>
                                         <td class="align-middle text-center">
                                             <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="Detail" href="/validasi/pkl/<?= $item['id_pkl'] ?> ?>" class="btn btn-icon btn-primary mr-5"><i class="fas fa-eye"></i></a> -->
                                             <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" href="/validasi/pkl/<?= $item['id_pkl'] ?>" class="btn btn-icon btn-warning mr-5 ml-3"><i class="fas fa-edit"></i></a>
@@ -70,7 +77,7 @@
                                     </tr>
                                 <?php $index++;
                                 endforeach; ?>
-
+                            </tbody>
 
                         </table>
 

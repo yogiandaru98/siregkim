@@ -148,7 +148,7 @@
         </div>
 </div>
 
-<?php //if(!empty($pkl['lokasi_seminar_pkl'])) :// 
+<?php if($pkl['status_pkl']== "Valid") :
 ?>
 <div class="page-heading">
     <h3>Jadwal Seminar</h3>
@@ -171,8 +171,8 @@
                                 <td style="width: 20% !important;">Tanggal Seminar</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;">
-                                    <?php if (!empty($jadwal['tanggal'])) : ?>
-                                        <?= $jadwal['tanggal'] ?>
+                                    <?php if (!empty($jadwal[0]['tanggal'])) : ?>
+                                        <?= date_indo($jadwal[0]['tanggal']); ?>
                                     <?php else : ?>
                                         Belum Ditentukan
                                     <?php endif; ?>
@@ -183,8 +183,8 @@
                                 <td style="width: 20% !important;">Jam Mulai</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;">
-                                    <?php if (!empty($jadwal['jam_mulai'])) : ?>
-                                        <?= $jadwal['jam_mulai'] ?>
+                                    <?php if (!empty($jadwal[0]['jam_mulai'])) : ?>
+                                        <?= $jadwal[0]['jam_mulai'] ?>
                                     <?php else : ?>
                                         Belum Ditentukan
                                     <?php endif; ?>
@@ -195,8 +195,8 @@
                                 <td style="width: 20% !important;">Jam Selesai</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;">
-                                    <?php if (!empty($jadwal['jam_selesai'])) : ?>
-                                        <?= $jadwal['jam_selesai'] ?>
+                                    <?php if (!empty($jadwal[0]['jam_selesai'])) : ?>
+                                        <?= $jadwal[0]['jam_selesai'] ?>
                                     <?php else : ?>
                                         Belum Ditentukan
                                     <?php endif; ?>
@@ -207,8 +207,9 @@
                                 <td style="width: 20% !important;">Lokasi Seminar</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;">
-                                    <?php if (!empty($jadwal['lokasi_seminar'])) : ?>
-                                        <?= $jadwal['lokasi_seminar'] ?>
+                                    <?php if (!empty($jadwal[0]['nama_gedung'])) : ?>
+                                        <?= $jadwal[0]['nama_gedung'] ?> / 
+                                        <?= $jadwal[0]['nama_ruangan'] ?>
                                     <?php else : ?>
                                         Belum Ditentukan
                                     <?php endif; ?>
@@ -219,9 +220,8 @@
                                 <td style="width: 20% !important;">Berkas Seminar</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;">
-                                    <?php if (!empty($jadwal['berkas_seminar'])) : ?>
-                                        <?= $jadwal['berkas_seminar'] ?>
-                                        <a href="/berkas/pkl/<?= $jadwal['berkas_seminar'] ?>" target="_blank">Unduh</a>
+                                    <?php if (!empty($jadwal[0]['berkas_seminar'])) : ?>
+                                        <a href="/berkas/pkl/seminar/<?= $jadwal[0]['berkas_seminar'] ?>" target="_blank">Unduh</a>
                                     <?php else : ?>
                                         Belum Ada
                                     <?php endif; ?>
@@ -232,8 +232,8 @@
                                 <td style="width: 20% !important;">Pesan Koordinator</td>
                                 <td style="width: 5% !important;">:</td>
                                 <td style="width: 75% !important;" class="linkify">
-                                    <?php if (!empty($jadwal['pesan_koor'])) : ?>
-                                        <?= $jadwal['pesan_koor'] ?>
+                                    <?php if (!empty($jadwal[0]['pesan_koor'])) : ?>
+                                        <?= $jadwal[0]['pesan_koor'] ?>
                                     <?php else : ?>
                                         Belum Ada
                                     <?php endif; ?>
@@ -248,10 +248,10 @@
             </div>
         </div>
 </div>
-<?php // endif; 
+<?php endif; 
 ?>
 
-<?php // if(!empty($pkl['lokasi_seminar_pkl'])) : 
+<?php  if(!empty($jadwal[0]['nama_ruangan'])) : 
 ?>
 <div class="page-heading">
     <h3>Bukti Seminar</h3>
@@ -392,7 +392,7 @@
             </div>
         </div>
 </div>
-<?php //endif; 
+<?php endif; 
 ?>
 
 <script>

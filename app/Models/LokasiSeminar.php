@@ -14,7 +14,7 @@ class LokasiSeminar extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_gedung', 'nama_ruang','created_at', 'updated_at'];
+    protected $allowedFields    = ['nama_gedung', 'nama_ruangan','created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = true;

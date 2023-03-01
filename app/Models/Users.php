@@ -55,4 +55,11 @@ class Users extends Model
             ->where('users.id_user', $id)
             ->get()->getRowArray();
     }
+
+    public function getUser($id)
+    {
+        return $this->db->table('users')->select('users.*')
+            ->where('users.id_user', $id)
+            ->get()->getRowArray();
+    }
 }

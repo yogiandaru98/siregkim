@@ -15,6 +15,7 @@ class PKL extends BaseController
         $this->modelJadwalSeminar = new \App\Models\JadwalSeminarPKL();
         $this->modelBuktiSeminar = new \App\Models\BuktiSeminarPKL();
         $this->modelBerkasKelengkapan = new \App\Models\BerkasKelengkapan();
+        $this->session = session();
     }
     public function index()
     {
@@ -29,7 +30,9 @@ class PKL extends BaseController
                 'dosen' => $this->modelUsers->getDosen(),
                 'validation' => \Config\Services::validation(),
                 'bukti' => $this->modelBuktiSeminar->where('id_pkl', $mPKL['id_pkl'])->first(),
-                'berkas_kelengkapan' => $this->modelBerkasKelengkapan->where('isi_berkas', 'berkas_kelengkapan_pkl.pdf')->first()
+                'berkas_kelengkapan' => $this->modelBerkasKelengkapan->where('isi_berkas', 'berkas_kelengkapan_pkl.pdf')->first(),
+                'jadwal' => $this->modelJadwalSeminar->getPklJadwal($mPKL['id_pkl']),
+                
 
             ];
 
