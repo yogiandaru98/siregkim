@@ -82,11 +82,11 @@ class Filters extends BaseConfig
      * @var array
      */
     public $filters = [
-        'isLogin' => ['before' => ['dashboard', 'user/*']],
-        'isMahasiswa' => ['before' => ['mahasiswa/*']],
-        'isAdmin' => ['before' => ['validasi/*', 'kelengkapan/*', 'template/*']],
-        'isKoor' => ['before' => ['lokasi/*', 'jadwal/*' ]],
-        'isSuperadmin' => ['before' => ['superadmin/*']],
+        'isLogin' => ['before' => ['dashboard', 'user/*', 'user']],
+        'isMahasiswa' => ['before' => ['mahasiswa/*', 'mahasiswa']],
+        'isAdmin' => ['before' => ['validasi/*', 'kelengkapan/*', 'template/*', 'validasi', 'kelengkapan', 'template']],
+        'isKoor' => ['before' => ['lokasi/*', 'jadwal/*', 'lokasi', 'jadwal']],
+        'isSuperadmin' => ['before' => ['superadmin/*', 'superadmin']],
 
     ];
 }

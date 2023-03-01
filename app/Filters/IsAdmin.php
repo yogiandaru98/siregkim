@@ -27,7 +27,7 @@ class IsAdmin implements FilterInterface
     {
         //
         $session = session();
-        if ( $session->logged_in || $session->is_admin != 1) {
+        if ( $session->logged_in != 1 || $session->is_admin != 1) {
             // Jika user tidak memiliki role 'admin', maka akan diarahkan ke halaman lain
             return redirect()->to('/dashboard');
         }
