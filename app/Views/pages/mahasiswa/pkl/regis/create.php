@@ -153,6 +153,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="berkas_kelengkapan">Berkas Kelengkapan</label>
+                                                <a href="/berkas/kelengkapan/<?= $berkas_kelengkapan['isi_berkas'] ;?>">Lihat Persyaratan</a>
                                                 <input required type="file" id="berkas_kelengkapan" class="form-control <?= ($validation->hasError('berkas_kelengkapan')) ? 'is-invalid' : ''; ?>" name="berkas_kelengkapan" placeholder="Berkas Kelengkapan" accept=".pdf">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('berkas_kelengkapan') ?>
