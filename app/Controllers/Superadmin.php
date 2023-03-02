@@ -93,11 +93,10 @@ class Superadmin extends BaseController
                 ]
             ],
             'username' => [
-                'rules' => 'required|numeric|is_unique[users.username]',
+                'rules' => 'required|numeric',
                 'errors' => [
                     'required' => 'Username harus diisi',
                     'numeric' => 'Username harus berupa angka',
-                    'is_unique' => 'Username sudah terdaftar',
                 ]
             ],
          ]);
