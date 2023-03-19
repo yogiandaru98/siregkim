@@ -72,12 +72,7 @@ class PKL extends BaseController
                     'required' => 'Semester harus diisi',
                 ]
             ],
-            // 'prodi' => [
-            //     'rules' => 'required',
-            //     'errors' => [
-            //         'required' => 'Program Studi harus diisi',
-            //     ]
-            // ],
+
             'nama_mitra_pkl' => [
                 'rules' => 'required',
                 'errors' => [
@@ -114,12 +109,7 @@ class PKL extends BaseController
                     'required' => 'Nomor Pembimbing Lapangan harus diisi',
                 ]
             ],
-            // 'toefl' => [
-            //     'rules' => 'required',
-            //     'errors' => [
-            //         'required' => 'Toefl harus diisi',
-            //     ]
-            // ],
+
             'sks' => [
                 'rules' => 'required',
                 'errors' => [

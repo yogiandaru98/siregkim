@@ -139,23 +139,23 @@ $routes->post('superadmin/akun/delete/(:num)', 'Superadmin::deleteAkun/$1');
 
 
 
-// karina testing view
+// // karina testing view
 $routes->get('/', 'AuthUser::index');
-$routes->get('forgotpass', 'Pages::forgotpass');
-// $routes->get('dashboard', 'Pages::dashboard');
-// $routes->get('profile', 'Pages::profile');
-$routes->get('pkl', 'Pages::pkl');
-$routes->get('pra-ta', 'Pages::pra_ta');
-$routes->get('ta-1', 'Pages::ta_1');
-$routes->get('ta-2', 'Pages::ta_2');
-$routes->get('kompre', 'Pages::kompre');
-$routes->get('kompre', 'Pages::kompre');
+// $routes->get('forgotpass', 'Pages::forgotpass');
+// // $routes->get('dashboard', 'Pages::dashboard');
+// // $routes->get('profile', 'Pages::profile');
+// $routes->get('pkl', 'Pages::pkl');
+// $routes->get('pra-ta', 'Pages::pra_ta');
+// $routes->get('ta-1', 'Pages::ta_1');
+// $routes->get('ta-2', 'Pages::ta_2');
+// $routes->get('kompre', 'Pages::kompre');
+// $routes->get('kompre', 'Pages::kompre');
 
-$routes->get('mahasiswa/prata', 'Mahasiswa::Pkl');
-$routes->post('mahasiswa/prata/create/action', 'Mahasiswa::savePkl');
-$routes->get('mahasiswa/prata/edit', 'Mahasiswa::editPkl');
-$routes->post('mahasiswa/prata/edit/action', 'Mahasiswa::updatePkl');
-$routes->post('mahasiswa/prata/buktiSeminar', 'Mahasiswa::updateBuktiSeminar');
+// $routes->get('mahasiswa/prata', 'Mahasiswa::Pkl');
+// $routes->post('mahasiswa/prata/create/action', 'Mahasiswa::savePkl');
+// $routes->get('mahasiswa/prata/edit', 'Mahasiswa::editPkl');
+// $routes->post('mahasiswa/prata/edit/action', 'Mahasiswa::updatePkl');
+// $routes->post('mahasiswa/prata/buktiSeminar', 'Mahasiswa::updateBuktiSeminar');
 
 
 

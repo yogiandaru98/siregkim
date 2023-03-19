@@ -13,8 +13,6 @@ class AuthUser extends BaseController
         $this->modelUsers = new \App\Models\Users();
     }
 
-
-    //
     public function index()
     {
         if (session()->get('logged_in')) {
@@ -44,9 +42,9 @@ class AuthUser extends BaseController
                     'is_mahasiswa' => $user['is_mahasiswa'],
                     'is_dosen' => $user['is_dosen'],
                     'is_koor' => $user['is_koor'],
-                    'is_tandik' => $user['is_tandik'],
+
                     'is_admin' => $user['is_admin'],
-                    'is_alumni' => $user['is_alumni'],
+
                     'logged_in' => TRUE
                 ];
                 session()->set($data);
@@ -55,8 +53,7 @@ class AuthUser extends BaseController
                 session()->setFlashdata('error', 'Password Salah');
                 return redirect()->to(site_url('login'));
             }
-        }
-        else {
+        } else {
             session()->setFlashdata('error', 'Username atau Password Salah');
             return redirect()->to(site_url('login'));
         }
@@ -70,7 +67,7 @@ class AuthUser extends BaseController
     {
         $data = [
             'title' => 'Ganti Password',
-            'validation'=> \Config\Services::validation()
+            'validation' => \Config\Services::validation()
 
         ];
         return view('pages/auth/ganti_password', $data);

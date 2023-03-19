@@ -87,6 +87,5 @@ class Filters extends BaseConfig
         'isAdmin' => ['before' => ['validasi/*', 'kelengkapan/*', 'template/*', 'validasi', 'kelengkapan', 'template']],
         'isKoor' => ['before' => ['lokasi/*', 'jadwal/*', 'lokasi', 'jadwal']],
         'isSuperadmin' => ['before' => ['superadmin/*', 'superadmin']],
-
     ];
 }

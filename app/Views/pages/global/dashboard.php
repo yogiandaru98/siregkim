@@ -1,6 +1,11 @@
 <?= $this->extend('templates/sidebar') ?>
 <?= $this->section('content') ?>
 
+<style>
+  .mend-10{
+    margin-right: 20rem;
+  }
+</style>
 <div class="page-heading">
     <h3><?= $title ?></h3>
 </div>
@@ -22,6 +27,69 @@
                     <h4 class="card-title"><?= session()->get('nama') ?></h4>
     <p class="card-text"><?= session()->get('username') ?></p>
                     </div>
+                </div>
+                <div class="d-flex justify-content-around me-10">
+                <?php if (session()->get('is_admin') == 1) : ?>
+                  <div class="card">
+                  <a href="/validasi/pkl">
+                    <div class="card-body px-4 py-4-5">
+                      <div class="row">
+                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                          <div class="card-header bg-warning mb-2">
+                            <div class="text-light bold"> <strong> PKL</strong></div>
+                          </div>
+                        </div>
+                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                          <h6 class="text-muted font-semibold">
+                            Belum divalidasi
+                          </h6>
+                          <h6 class="font-extrabold mb-0"><?= $regPkl ?></h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                  <a href="/validasi/seminar">
+                  <div class="card">
+                    <div class="card-body px-4 py-4-5">
+                      <div class="row">
+                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                          <div class="card-header bg-warning mb-2">
+                            <div class="text-light bold"> <strong> BUKTI </strong></div>
+                          </div>
+                        </div>
+                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                          <h6 class="text-muted font-semibold">
+                            Belum divalidasi
+                          </h6>
+                          <h6 class="font-extrabold mb-0"><?= $buktiSeminar ?></h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                  <?php endif; ?>
+                  <?php if (session()->get('is_koor') == 1) : ?>
+                    <a href="<?= site_url("jadwal") ?>">
+                  <div class="card">
+                    <div class="card-body px-4 py-4-5">
+                      <div class="row">
+                        <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start">
+                          <div class="card-header bg-warning mb-2">
+                            <div class="text-light bold"> <strong> JADWAL </strong></div>
+                          </div>
+                        </div>
+                        <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                          <h6 class="text-muted font-semibold">
+                            Belum terjadwal
+                          </h6>
+                          <h6 class="font-extrabold mb-0"><?= $jadwalSeminar ?></h6>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </a>
+                  <?php endif; ?>
                 </div>
             </div>
         </div>

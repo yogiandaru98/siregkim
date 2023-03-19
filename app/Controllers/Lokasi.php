@@ -84,9 +84,9 @@ class Lokasi extends BaseController
                     'required' => 'Nama Ruangan harus diisi',
                 ]
             ],
-            
+
          ]);
-        
+
         if(!$validatedLokasi){
             return redirect()->to('/lokasi/update/'.$id)->withInput();
         }

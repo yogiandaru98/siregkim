@@ -107,7 +107,7 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="toefl">TOEFL <i>Kosongkan apabila belum memiliki</i></label>
-                                                <input required type="number" id="toefl" class="form-control <?= ($validation->hasError('toefl')) ? 'is-invalid' : ''; ?>" name="toefl" placeholder="TOEFL" value="<?= set_value('toefl'); ?>">
+                                                <input type="number" id="toefl" class="form-control <?= ($validation->hasError('toefl')) ? 'is-invalid' : ''; ?>" name="toefl" placeholder="TOEFL" value="<?= set_value('toefl'); ?>">
                                                 <div class="invalid-feedback">
                                                     <?= $validation->getError('toefl') ?>
                                                 </div>
