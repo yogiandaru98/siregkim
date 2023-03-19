@@ -118,7 +118,7 @@ class Superadmin extends BaseController
         'is_superadmin' =>  htmlspecialchars($this->request->getVar('is_superadmin')),
          ];
         $this->modelUsers->update($id, $dataAkun);
-        session()->setFlashdata('pesan', 'Data berhasil ditambahkan');
+        session()->setFlashdata('pesan', 'Data berhasil diUbah');
         return redirect()->to('/superadmin/akun');
     }
 }
