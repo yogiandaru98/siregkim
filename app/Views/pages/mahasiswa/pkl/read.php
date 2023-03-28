@@ -16,8 +16,11 @@
             <div class="col-12">
                 <div class="card p-3">
                     <div class="col-12 d-flex justify-content-end">
-                        <a class="btn btn-primary" href="<?= site_url('/mahasiswa/pkl/edit') ?>">Edit
-                            Data</a>
+                        <?php if ($pkl['status_pkl'] != "Valid") : ?>
+                            <a class="btn btn-primary" href="<?= site_url('/mahasiswa/pkl/edit') ?>">Edit
+                                Data</a>
+                        <?php endif;
+                        ?>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-borderless">
@@ -139,107 +142,6 @@
                                 <td style="width: 75% !important;"><a href="/berkas/pkl/kelengkapan/<?= $pkl['berkas_kelengkapan'] ?>" target="_blank">Unduh Berkas</a></td>
 
                             </tr>
-                            
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
-
-<?php if($pkl['status_pkl']== "Valid") :
-?>
-<div class="page-heading">
-    <h3>Jadwal Seminar</h3>
-</div>
-<div class="page-content">
-    <section class="row">
-        <div class="col-12 col-lg-9">
-            <div class="row">
-                <div class="col-6 col-lg-3 col-md-6">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card p-3">
-                    <div class="table-responsive">
-                        <table class="table table-borderless">
-
-                            <tr>
-                                <td style="width: 20% !important;">Tanggal Seminar</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($jadwal[0]['tanggal'])) : ?>
-                                        <?= date_indo($jadwal[0]['tanggal']); ?>
-                                    <?php else : ?>
-                                        Belum Ditentukan
-                                    <?php endif; ?>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Jam Mulai</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($jadwal[0]['jam_mulai'])) : ?>
-                                        <?= $jadwal[0]['jam_mulai'] ?>
-                                    <?php else : ?>
-                                        Belum Ditentukan
-                                    <?php endif; ?>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Jam Selesai</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($jadwal[0]['jam_selesai'])) : ?>
-                                        <?= $jadwal[0]['jam_selesai'] ?>
-                                    <?php else : ?>
-                                        Belum Ditentukan
-                                    <?php endif; ?>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Lokasi Seminar</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($jadwal[0]['nama_gedung'])) : ?>
-                                        <?= $jadwal[0]['nama_gedung'] ?> / 
-                                        <?= $jadwal[0]['nama_ruangan'] ?>
-                                    <?php else : ?>
-                                        Belum Ditentukan
-                                    <?php endif; ?>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Berkas Seminar</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($jadwal[0]['berkas_seminar'])) : ?>
-                                        <a href="/berkas/pkl/seminar/<?= $jadwal[0]['berkas_seminar'] ?>" target="_blank">Unduh</a>
-                                    <?php else : ?>
-                                        Belum Ada
-                                    <?php endif; ?>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Pesan Koordinator</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;" class="linkify">
-                                    <?php if (!empty($jadwal[0]['pesan_koor'])) : ?>
-                                        <?= $jadwal[0]['pesan_koor'] ?>
-                                    <?php else : ?>
-                                        Belum Ada
-                                    <?php endif; ?>
-                                </td>
-
-                            </tr>
 
                             </tbody>
                         </table>
@@ -248,186 +150,289 @@
             </div>
         </div>
 </div>
-<?php endif; 
-?>
 
-<?php  if(!empty($jadwal[0]['nama_ruangan'])) : 
+<?php if ($pkl['status_pkl'] == "Valid") :
 ?>
-<div class="page-heading">
-    <h3>Bukti Seminar</h3>
-</div>
-<div class="page-content">
-    <section class="row">
-        <div class="col-12 col-lg-9">
-            <div class="row">
-                <div class="col-6 col-lg-3 col-md-6">
+    <div class="page-heading">
+        <h3>Jadwal Seminar</h3>
+    </div>
+    <div class="page-content">
+        <section class="row">
+            <div class="col-12 col-lg-9">
+                <div class="row">
+                    <div class="col-6 col-lg-3 col-md-6">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <div class="card p-3">
-                    <div class="col-12 d-flex justify-content-end">
-                        <?php if (!empty($bukti['bukti_seminar'])) : ?>
-                            <a class="btn btn-primary" href="/mahasiswa/pkl/buktiSeminar/edit" >Edit Bukti</a>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card p-3">
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+
+                                <tr>
+                                    <td style="width: 20% !important;">Tanggal Seminar</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($jadwal[0]['tanggal'])) : ?>
+                                            <?= date_indo($jadwal[0]['tanggal']); ?>
+                                        <?php else : ?>
+                                            Belum Ditentukan
+                                        <?php endif; ?>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Jam Mulai</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($jadwal[0]['jam_mulai'])) : ?>
+                                            <?= $jadwal[0]['jam_mulai'] ?>
+                                        <?php else : ?>
+                                            Belum Ditentukan
+                                        <?php endif; ?>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Jam Selesai</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($jadwal[0]['jam_selesai'])) : ?>
+                                            <?= $jadwal[0]['jam_selesai'] ?>
+                                        <?php else : ?>
+                                            Belum Ditentukan
+                                        <?php endif; ?>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Lokasi Seminar</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($jadwal[0]['nama_gedung'])) : ?>
+                                            <?= $jadwal[0]['nama_gedung'] ?> /
+                                            <?= $jadwal[0]['nama_ruangan'] ?>
+                                        <?php else : ?>
+                                            Belum Ditentukan
+                                        <?php endif; ?>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Berkas Seminar</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($jadwal[0]['berkas_seminar'])) : ?>
+                                            <a href="/berkas/pkl/seminar/<?= $jadwal[0]['berkas_seminar'] ?>" target="_blank">Unduh</a>
+                                        <?php else : ?>
+                                            Belum Ada
+                                        <?php endif; ?>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Pesan Koordinator</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;" class="linkify">
+                                        <?php if (!empty($jadwal[0]['pesan_koor'])) : ?>
+                                            <?= $jadwal[0]['pesan_koor'] ?>
+                                        <?php else : ?>
+                                            Belum Ada
+                                        <?php endif; ?>
+                                    </td>
+
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+<?php endif;
+?>
+
+<?php if (!empty($jadwal[0]['nama_ruangan']) && $pkl['status_pkl'] == "Valid") :
+?>
+    <div class="page-heading">
+        <h3>Bukti Seminar</h3>
+    </div>
+    <div class="page-content">
+        <section class="row">
+            <div class="col-12 col-lg-9">
+                <div class="row">
+                    <div class="col-6 col-lg-3 col-md-6">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card p-3">
+                        <div class="col-12 d-flex justify-content-end">
+                            <?php if (!empty($bukti['bukti_seminar'])) : ?>
+                                <?php if ($bukti['status_bukti_seminar'] != "Valid") :
+                                ?>
+                                    <a class="btn btn-primary" href="/mahasiswa/pkl/buktiSeminar/edit">Edit Bukti</a>
+                                <?php endif; ?>
                             <?php else : ?>
-                                <a class="btn btn-primary" href="/mahasiswa/pkl/buktiSeminar/create" >Unggah Bukti</a>
-                        <?php endif; ?>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-borderless">
-                            <tr>
-                                <td style="width: 20% !important;">Bukti Seminar</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($bukti['bukti_seminar'])) : ?>
-                                        <a href="/berkas/pkl/bukti/seminar/<?= $bukti['bukti_seminar'] ?>" target="_blank">Unduh</a>
-                                    <?php else : ?>
-                                        <a href="" data-bs-toggle="modal" data-bs-target="#inlineForm">Unggah Berkas</a>
-                                    <?php endif; ?>
+                                <a class="btn btn-primary" href="/mahasiswa/pkl/buktiSeminar/create">Unggah Bukti</a>
+                            <?php endif; ?>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <tr>
+                                    <td style="width: 20% !important;">Bukti Seminar</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($bukti['bukti_seminar'])) : ?>
+                                            <a href="/berkas/pkl/bukti/seminar/<?= $bukti['bukti_seminar'] ?>" target="_blank">Unduh</a>
+                                        <?php else : ?>
+                                            <a href="/mahasiswa/pkl/buktiSeminar/create" data-bs-toggle="modal" data-bs-target="#inlineForm">Unggah Berkas</a>
+                                        <?php endif; ?>
 
-                                </td>
-                            <tr>
-                                <td style="width: 20% !important;">Laporan Final PKL</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($bukti['laporan_pkl'])) : ?>
-                                        <a href="/berkas/pkl/bukti/laporan/<?= $bukti['laporan_pkl'] ?>" target="_blank">Unduh</a>
-                                    <?php else : ?>
-                                        <a href="" data-bs-toggle="modal" data-bs-target="#inlineForm">Unggah Berkas</a>
-                                    <?php endif; ?>
+                                    </td>
+                                <tr>
+                                    <td style="width: 20% !important;">Laporan Final PKL</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($bukti['laporan_pkl'])) : ?>
+                                            <a href="/berkas/pkl/bukti/laporan/<?= $bukti['laporan_pkl'] ?>" target="_blank">Unduh</a>
+                                        <?php else : ?>
+                                            <a href="/mahasiswa/pkl/buktiSeminar/create" data-bs-toggle="modal" data-bs-target="#inlineForm">Unggah Berkas</a>
+                                        <?php endif; ?>
 
-                                </td>
+                                    </td>
 
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Tanggal Seminar</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($bukti['tanggal_seminar'])) : ?>
-                                        <?= date_indo($bukti['tanggal_seminar']) ?>
-                                    <?php else : ?>
-                                        Belum Ada
-                                    <?php endif; ?>
-                                </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Tanggal Seminar</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($bukti['tanggal_seminar'])) : ?>
+                                            <?= date_indo($bukti['tanggal_seminar']) ?>
+                                        <?php else : ?>
+                                            Belum Ada
+                                        <?php endif; ?>
+                                    </td>
 
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Nilai Seminar Angka</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($bukti['nilai_seminar_angka'])) : ?>
-                                        <?= $bukti['nilai_seminar_angka'] ?>
-                                    <?php else : ?>
-                                        Belum Ada
-                                    <?php endif; ?>
-                                </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Nilai Seminar Angka</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($bukti['nilai_seminar_angka'])) : ?>
+                                            <?= $bukti['nilai_seminar_angka'] ?>
+                                        <?php else : ?>
+                                            Belum Ada
+                                        <?php endif; ?>
+                                    </td>
 
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Nilai Seminar Huruf</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($bukti['nilai_seminar_huruf'])) : ?>
-                                        <?= $bukti['nilai_seminar_huruf'] ?>
-                                    <?php else : ?>
-                                        Belum Ada
-                                    <?php endif; ?>
-                                </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Nilai Seminar Huruf</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($bukti['nilai_seminar_huruf'])) : ?>
+                                            <?= $bukti['nilai_seminar_huruf'] ?>
+                                        <?php else : ?>
+                                            Belum Ada
+                                        <?php endif; ?>
+                                    </td>
 
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Nilai PKL Angka</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($bukti['nilai_pkl_angka'])) : ?>
-                                        <?= $bukti['nilai_pkl_angka'] ?>
-                                    <?php else : ?>
-                                        Belum Ada
-                                    <?php endif; ?>
-                                </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Nilai PKL Angka</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($bukti['nilai_pkl_angka'])) : ?>
+                                            <?= $bukti['nilai_pkl_angka'] ?>
+                                        <?php else : ?>
+                                            Belum Ada
+                                        <?php endif; ?>
+                                    </td>
 
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Nilai PKL Huruf</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($bukti['nilai_pkl_huruf'])) : ?>
-                                        <?= $bukti['nilai_pkl_huruf'] ?>
-                                    <?php else : ?>
-                                        Belum Ada
-                                    <?php endif; ?>
-                                </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Nilai PKL Huruf</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($bukti['nilai_pkl_huruf'])) : ?>
+                                            <?= $bukti['nilai_pkl_huruf'] ?>
+                                        <?php else : ?>
+                                            Belum Ada
+                                        <?php endif; ?>
+                                    </td>
 
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Status Bukti</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;">
-                                    <?php if (!empty($bukti['bukti_seminar'])) : ?>
-                                        <?= $bukti['status_bukti_seminar'] ?>
-                                    <?php else : ?>
-                                        Belum Ada
-                                    <?php endif; ?>
-                                </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Status Bukti</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;">
+                                        <?php if (!empty($bukti['bukti_seminar'])) : ?>
+                                            <?= $bukti['status_bukti_seminar'] ?>
+                                        <?php else : ?>
+                                            Belum Ada
+                                        <?php endif; ?>
+                                    </td>
 
-                            </tr>
-                            <tr>
-                                <td style="width: 20% !important;">Pesan Admin</td>
-                                <td style="width: 5% !important;">:</td>
-                                <td style="width: 75% !important;" class="linkify">
-                                    <?php if (!empty($bukti['pesan_admin'])) : ?>
-                                        <?= $bukti['pesan_admin'] ?>
-                                    <?php else : ?>
-                                        Tidak Ada Pesan
-                                    <?php endif; ?>
-                                </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 20% !important;">Pesan Admin</td>
+                                    <td style="width: 5% !important;">:</td>
+                                    <td style="width: 75% !important;" class="linkify">
+                                        <?php if (!empty($bukti['pesan_admin'])) : ?>
+                                            <?= $bukti['pesan_admin'] ?>
+                                        <?php else : ?>
+                                            Tidak Ada Pesan
+                                        <?php endif; ?>
+                                    </td>
 
-                            </tr>
+                                </tr>
 
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-</div>
-<?php endif; 
+    </div>
+<?php endif;
 ?>
 
 <script>
     function isLink(str) {
-  // Regular expression to match URLs
-  var urlRegex = /(https?:\/\/[^\s]+)/g;
-  
-  // Return true if the string matches the URL regex
-  return str.match(urlRegex);
-}
+        // Regular expression to match URLs
+        var urlRegex = /(https?:\/\/[^\s]+)/g;
 
-function createLink(text) {
-  var urlRegex = /((http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?)/gi;
-  return text.replace(urlRegex, function(url) {
-    return '<a href="' + url + '">' + url + '</a>';
-  })
-}
-// mengambil semua elemen dengan kelas 'linkify'
-var linkifyElements = document.querySelectorAll('.linkify');
+        // Return true if the string matches the URL regex
+        return str.match(urlRegex);
+    }
 
-// memproses setiap elemen
-linkifyElements.forEach(function(linkifyElement) {
-  // mendapatkan teks dari elemen
-  var text = linkifyElement.textContent;
+    function createLink(text) {
+        var urlRegex = /((http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?)/gi;
+        return text.replace(urlRegex, function(url) {
+            return '<a href="' + url + '">' + url + '</a>';
+        })
+    }
+    // mengambil semua elemen dengan kelas 'linkify'
+    var linkifyElements = document.querySelectorAll('.linkify');
 
-  // memeriksa apakah teks mengandung link
-  if (isLink(text)) {
-    // membuat link yang baru dengan fungsi createLink()
-    var link = createLink(text);
+    // memproses setiap elemen
+    linkifyElements.forEach(function(linkifyElement) {
+        // mendapatkan teks dari elemen
+        var text = linkifyElement.textContent;
 
-    // mengganti teks asli dengan link baru
-    linkifyElement.innerHTML = link;
-  }
-});
+        // memeriksa apakah teks mengandung link
+        if (isLink(text)) {
+            // membuat link yang baru dengan fungsi createLink()
+            var link = createLink(text);
 
+            // mengganti teks asli dengan link baru
+            linkifyElement.innerHTML = link;
+        }
+    });
 </script>
 <footer>
     <div class="footer clearfix mb-0 text-muted">
