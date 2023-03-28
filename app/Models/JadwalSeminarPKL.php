@@ -57,7 +57,23 @@ class JadwalSeminarPKL extends Model
         ->get()->getResultArray();
     }
 
-    
+public function sumPklJadwalAll(){
+    return $this->db->table('pkl_mahasiswa')->select('pkl_mahasiswa.*,
+    dosen_akademik.username AS nip_dosen_akademik, dosen_akademik.nama AS nama_dosen_akademik,
+    dosen_pkl.username AS nip_dosen_pkl, dosen_pkl.nama AS nama_dosen_pkl, 
+    jadwal_seminar_pkl.id_jadwal_seminar_pkl, jadwal_seminar_pkl.tanggal, jadwal_seminar_pkl.jam_mulai, jadwal_seminar_pkl.jam_selesai, jadwal_seminar_pkl.pesan_koor, jadwal_seminar_pkl.berkas_seminar,
+    lokasi_seminar.*, mahasiswa.*')
+    ->join('jadwal_seminar_pkl', 'jadwal_seminar_pkl.id_pkl = pkl_mahasiswa.id_pkl','left')
+    ->join('lokasi_seminar', 'lokasi_seminar.id_lokasi_seminar = jadwal_seminar_pkl.id_lokasi_seminar','left')
+    ->join('profile_mahasiswa', 'profile_mahasiswa.id_user = pkl_mahasiswa.id_user','left')
+    ->join('users AS mahasiswa', 'mahasiswa.id_user = pkl_mahasiswa.id_user','left')
+    ->join('users AS dosen_akademik', 'dosen_akademik.id_user = profile_mahasiswa.dosen_pembimbing_akademik','left')
+    ->join('users AS dosen_pkl', 'dosen_pkl.id_user = pkl_mahasiswa.dosen_pembimbing_pkl','left')
+    ->where('pkl_mahasiswa.status_pkl', 'Valid')
+    ->where('id_jadwal_seminar_pkl', null)
+    ->orderBy('pkl_mahasiswa.periode_seminar_pkl', 'ASC')
+    ->countAllResults();
+    }
 
     public function getPklJadwal($id){
         return $this->db->table('pkl_mahasiswa')->select('pkl_mahasiswa.*,

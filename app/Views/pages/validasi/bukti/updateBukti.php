@@ -16,8 +16,7 @@
             <div class="col-12">
                 <div class="card p-3">
                     <div class="col-12 d-flex justify-content-end">
-                        <a class="btn btn-primary" href="<?= site_url('/mahasiswa/pkl/edit') ?>">Edit
-                            Data</a>
+                        
                     </div>
                     <div class="table-responsive">
                         <table class="table table-borderless">

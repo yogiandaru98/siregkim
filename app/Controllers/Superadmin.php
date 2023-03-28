@@ -65,7 +65,7 @@ class Superadmin extends BaseController
         'is_mahasiswa' =>  htmlspecialchars($this->request->getVar('is_mahasiswa')),
         'is_dosen' =>  htmlspecialchars($this->request->getVar('is_dosen')),
         'is_koor' =>  htmlspecialchars($this->request->getVar('is_koor')),
-        'is_tandik' =>  htmlspecialchars($this->request->getVar('is_tandik')),
+        
         'is_admin' =>  htmlspecialchars($this->request->getVar('is_admin')),
         'is_superadmin' =>  htmlspecialchars($this->request->getVar('is_superadmin')),
          ];
@@ -113,12 +113,12 @@ class Superadmin extends BaseController
         'is_mahasiswa' =>  htmlspecialchars($this->request->getVar('is_mahasiswa')),
         'is_dosen' =>  htmlspecialchars($this->request->getVar('is_dosen')),
         'is_koor' =>  htmlspecialchars($this->request->getVar('is_koor')),
-        'is_tandik' =>  htmlspecialchars($this->request->getVar('is_tandik')),
+        
         'is_admin' =>  htmlspecialchars($this->request->getVar('is_admin')),
         'is_superadmin' =>  htmlspecialchars($this->request->getVar('is_superadmin')),
          ];
         $this->modelUsers->update($id, $dataAkun);
-        session()->setFlashdata('pesan', 'Data berhasil ditambahkan');
+        session()->setFlashdata('pesan', 'Data berhasil diUbah');
         return redirect()->to('/superadmin/akun');
     }
 }

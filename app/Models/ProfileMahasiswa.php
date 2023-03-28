@@ -54,14 +54,22 @@ class ProfileMahasiswa extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
     // joi tabel profile_mahasiswa dengan tabel users get result array
-    public function joinUsers($id_user)
-    {
-        return $this->db->table('profile_mahasiswa')->select('profile_mahasiswa.*, users.*, dosen_pembimbing_akademik.nama AS nama_dosen_pembimbing_akademik, dosen_pembimbing_akademik.username AS nip_dosen_pembimbing_akademik')
-            ->join('users AS dosen_pembimbing_akademik', 'dosen_pembimbing_akademik.id_user = profile_mahasiswa.dosen_pembimbing_akademik', 'left')
-            ->join('users', 'users.id_user = profile_mahasiswa.id_user', 'left')
-            ->where('profile_mahasiswa.id_user', $id_user)
-            ->get()->getRowArray();
-    }
+public function joinUsers($id_user)
+{
+return $this->db->table('profile_mahasiswa')
+->select('profile_mahasiswa.*, users.*,
+dosen_pembimbing_akademik.nama AS nama_dosen_pembimbing_akademik,
+dosen_pembimbing_akademik.username AS nip_dosen_pembimbing_akademik')
+->join('users AS dosen_pembimbing_akademik',
+'dosen_pembimbing_akademik.id_user = profile_mahasiswa.dosen_pembimbing_akademik',
+'left')
+->join('users',
+'users.id_user = profile_mahasiswa.id_user',
+'left')
+->where('profile_mahasiswa.id_user',
+$id_user)
+->get()->getRowArray();
+}
     // dapatkan nama dosen dari users menggunakan foreign key dosen_pembimbing_akademik di tabel profile_mahasiswa
     // public function getNamaDosen($id_user)
     // {

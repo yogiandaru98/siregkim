@@ -60,7 +60,7 @@
                                 <?php $index = 1;
                                 foreach ($lokasi as $item) : ?>
                                     <tr>
-                                        <td><?= $index; ?></td>
+                                        <td class="text-center"><?= $index; ?></td>
                                         <td><?= $item['nama_gedung']; ?></td>
                                         <td><?= $item['nama_ruangan']; ?></td>
                                         <td class="align-middle text-center">

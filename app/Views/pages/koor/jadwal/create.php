@@ -83,7 +83,7 @@
                                     </td>
                                 <tr>
                                 <tr>
-                                    <td style=" width: 20% !important;">Pesan Koor
+                                    <td style=" width: 20% !important;">Pesan
                                     </td>
                                     <td style="width: 5% !important;">:</td>
                                     <td style="width: 75% !important;">
